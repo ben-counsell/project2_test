@@ -2,24 +2,21 @@ import { useState } from "react"
 
 const FilterForm = ({setFilters}) => {
 
-    const [cuisine, setCuisine] = useState('cuisine=')
-    const [diet, setDiet] = useState('diet=')
+    const [cuisines, setCuisines] = useState([])
+    const [diets, setDiets] = useState([])
 
     const handleCuisineChange = (evt) => {
-        let newCuisineFilter
-        
+        let newCuisinesFilter
+        console.log(evt.target.checked)
+        console.log(evt.target.value)
+
         if (evt.target.checked) {
-            newCuisineFilter = cuisine + `${evt.target.name},`
-            console.log(newCuisineFilter)
+            setCuisines([...cuisines, evt.target.value])
+
         } else {
-            newCuisineFilter = cuisine.replace(`${evt.target.name},`, '')
+            newCuisinesFilter = cuisines.filter((cuisine) => cuisine != evt.target.value)
+            setCuisines(newCuisinesFilter)
         }
-
-        // gets rid of comma at end of string:
-        // newCuisineFilter.at(-1) === ',' ? newCuisineFilter = newCuisineFilter.slice(0, -1) : null 
-
-        setCuisine(newCuisineFilter)
-        console.log(cuisine)
     }
     
     // const handleDietChange = (evt) => setDiet(evt.target.value)
@@ -38,13 +35,13 @@ const FilterForm = ({setFilters}) => {
         <form onSubmit={onSubmit}>
             <div className="diet-select">
                 <label htmlFor="chinese">Chinese</label>
-                <input type="checkbox" name="chinese" onChange={handleCuisineChange}/>
+                <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisineChange}/><br/>
 
                 <label htmlFor="thai">Thai</label>
-                <input type="checkbox" name="thai" onChange={handleCuisineChange}/>
+                <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisineChange}/><br/>
 
                 <label htmlFor="italian">Italian</label>
-                <input type="checkbox" name="italian" onChange={handleCuisineChange}/>
+                <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisineChange}/>
             </div>
         </form>
     );
