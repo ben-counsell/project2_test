@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { getRecipes, getThai, getVeggie, getVegan } from './services/RecipeServices'
+import { getFilteredRecipes, getVeggie, getVegan, getRecipes, getThai } from './services/RecipeServices'
 import RecipeContainer from './containers/RecipeContainer'
+import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import './App.css'
 
@@ -10,7 +11,7 @@ function App() {
   const [thaiRecipes, setThaiRecipes] = useState([])
   const [veggieRecipes, setVeggieRecipes] = useState([])
   const [veganRecipes, setVeganRecipes] = useState([])
-
+  const [filteredResults, setFilteredResults] = useState([])
 
 
   useEffect(() => {
@@ -26,7 +27,7 @@ function App() {
       setThaiRecipes(recipes.results)
     })
   }, [])
-  
+
   useEffect(() => {
     getVeggie()
     .then((recipes) => {
@@ -41,10 +42,19 @@ function App() {
     })
   }, [])
   
+  
+  const getFilters = (newFilters) => {
+    getFilteredRecipes(newFilters)
+    .then((recipes) => {
+      setFilteredResults(recipes.results)
+    })
+  }
+  
   return (  
     <>
       <Header/>
-      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes}/>
+      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
+      <FilterForm getFilters={getFilters}/>
     </>
   )
 }
