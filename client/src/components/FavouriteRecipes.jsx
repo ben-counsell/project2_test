@@ -11,11 +11,10 @@ const FavouriteRecipes = ({recipes}) => {
             {favouriteRecipes.map(recipe => {
                 return (
                     <li key={recipe.id}>
-                        
-
-
+                        <button>{recipe.title}</button>
                     </li>
-
+                )})}
+            
         </ul>
         
         
