@@ -53,8 +53,8 @@ function App() {
   return (  
     <>
       <Header/>
-      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
       <FilterForm getFilters={getFilters}/>
+      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
     </>
   )
 }
