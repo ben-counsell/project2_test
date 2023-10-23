@@ -31,5 +31,8 @@ export const getFilteredRecipes = () => {
         apiCall = apiCall.slice(0, -1)
     }
 
-    console.log(apiCall)
+    return fetch(apiCall, {
+        headers:apiKey
+    })
+
 };

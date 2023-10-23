@@ -24,8 +24,8 @@ function App() {
     })
   }, [])
 
-  const setFilters = () => {
-
+  const setFilters = (filters) => {
+    console.log(filters)
   }
 
 //   useEffect(() => {
