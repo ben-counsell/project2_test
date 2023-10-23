@@ -15,6 +15,7 @@ const Vegan = ({ veganRecipes }) => {
     <div>
       <h3>Vegan Options</h3>
       <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
+        
         {veganCard}
       </Splide>
     </div>

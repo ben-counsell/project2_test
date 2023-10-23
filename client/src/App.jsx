@@ -5,10 +5,12 @@ import Header from './components/Header'
 import './App.css'
 
 function App() {
+  
   const [recipes, setRecipes] = useState([])
   const [thaiRecipes, setThaiRecipes] = useState([])
   const [veggieRecipes, setVeggieRecipes] = useState([])
   const [veganRecipes, setVeganRecipes] = useState([])
+
 
 
   useEffect(() => {
