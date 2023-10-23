@@ -1,8 +1,8 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
-const Thai = ({ thaiRecipes }) => {
-  const thaiCard = thaiRecipes.map((recipe) => (
+const Veggie = ({ veggieRecipes }) => {
+  const veggieCard = veggieRecipes.map((recipe) => (
     <SplideSlide key={recipe.id}>
       <div className="recipe-card">
         <h3>{recipe.title}</h3>
@@ -13,12 +13,12 @@ const Thai = ({ thaiRecipes }) => {
 
   return (
     <div>
-      <h3>Thai Options</h3>
+      <h3>Vegetarian Picks</h3>
       <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
-        {thaiCard}
+        {veggieCard}
       </Splide>
     </div>
   );
 };
 
-export default Thai;
+export default Veggie;
