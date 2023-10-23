@@ -1,4 +1,4 @@
-const FavouriteRecipes = ({recipes}) => {
+const FavouriteRecipes = ({recipes, OnRecipeSelected}) => {
 
 
 
@@ -7,15 +7,15 @@ const FavouriteRecipes = ({recipes}) => {
     return (
         <>
         <h2><u>Favourite Recipes</u></h2>
-        <ul>
             {favouriteRecipes.map(recipe => {
                 return (
-                    <li key={recipe.id}>
-                        <button>{recipe.title}</button>
-                    </li>
+                    <span className="favouriteblocks" key={recipe.id}>
+                        <h3 OnClick={() => OnRecipeSelected(id)}>{recipe.title}</h3>
+                        <img src={recipe.image} alt={`Picture for ${recipe.title}`}/>
+                    </span>
                 )})}
             
-        </ul>
+        
         
         
         </>
@@ -27,3 +27,5 @@ const FavouriteRecipes = ({recipes}) => {
 
 
 }
+
+export default FavouriteRecipes

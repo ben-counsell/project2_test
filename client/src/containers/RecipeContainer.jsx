@@ -1,3 +1,4 @@
+import FavouriteRecipes from "../components/FavouriteRecipes"
 import RecipeCard from "../components/RecipeCard"
 import Thai from "../components/Thai"
 import { useState } from "react"
@@ -19,6 +20,7 @@ function RecipeContainer({recipes,thaiRecipes,favouritesToggle}) {
     
             <RecipeCard recipes={recipes}/>
             <Thai thaiRecipes={thaiRecipes}/>
+            <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} />
         </>
     )
 }

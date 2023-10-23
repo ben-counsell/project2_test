@@ -18,3 +18,7 @@ header {
 .search-bar {
     
 }
+
+.favouriteblocks {
+  display: inline-block
+}
