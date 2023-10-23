@@ -1,0 +1,56 @@
+.heading {
+    font-size: 23px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.accordion {
+    list-style: none;
+    margin: 0px;
+}
+
+.button {
+    font-size: 16px;
+    background-color: #4e4e4e;
+    color: #fff;
+    text-align: left;
+    font-weight: 700;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.accordion-wrapper {
+    height: 0;
+    overflow: hidden;
+    transition: ease 0.2s;
+}
+
+.accordion-wrapper-open {
+    height: 200px;
+    transition: ease 0.3s;
+}
+
+.accordion-form {
+    background-color: #2e2e2e;
+    padding: 20px;
+}
+
+.accordion-open .button {
+    background-color: #6e6e6e;
+}
+
+.filter-option-form {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.filter-select {
+    width: 150px
+}

@@ -1,6 +1,9 @@
 import { useState } from "react"
+import '../style/Accordion.css'
 
 const FilterForm = ({getFilters}) => {
+
+    const [formExpanded, setFormExpanded] = useState(false)
 
     const [cuisines, setCuisines] = useState([])
     const [diets, setDiets] = useState([])
@@ -40,32 +43,47 @@ const FilterForm = ({getFilters}) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <div className="cuisine-select">
-                <h3>Cuisine:</h3>
-                <label htmlFor="chinese">Chinese</label>
-                <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/><br/>
+        <div className={`accordion${formExpanded ? '-open' : ''}`}>
 
-                <label htmlFor="thai">Thai</label>
-                <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/><br/>
+            <button className="button" onClick={() => setFormExpanded(!formExpanded)}>
+                Filter
+                <span className="control">{formExpanded ? '—' : '+'}</span>
+            </button>
 
-                <label htmlFor="italian">Italian</label>
-                <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisinesChange}/>
+            <div className={`accordion-wrapper${formExpanded ? '-open' : ''}`}>
+                <form onSubmit={onSubmit} className="accordion-form">
+
+                    <div className="filter-option-form">
+                        <div className="filter-select">
+                            <h3>Cuisine:</h3><br/>
+                            <label htmlFor="chinese">Chinese</label>
+                            <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/><br/>
+
+                            <label htmlFor="thai">Thai</label>
+                            <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/><br/>
+
+                            <label htmlFor="italian">Italian</label>
+                            <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisinesChange}/>
+                        </div>
+
+                        <div className="filter-select">
+                            <h3>Dietary<br/>requirements:</h3>
+                            <label htmlFor="vegetarian">Vegetarian</label>
+                            <input type="checkbox" name="diet" value="vegetarian" onChange={handleDietsChange}/><br/>
+
+                            <label htmlFor="vegan">Vegan</label>
+                            <input type="checkbox" name="diet" value="vegan" onChange={handleDietsChange}/><br/>
+
+                            <label htmlFor="gluten%20free">Gluten Free</label>
+                            <input type="checkbox" name="diet" value="gluten%20free" onChange={handleDietsChange}/><br/>
+                        </div>
+                    </div>
+
+                    <input type="submit"/>
+
+                </form>
             </div>
-
-            <div className="diet-select">
-                <h3>Dietary requirements:</h3>
-                <label htmlFor="vegetarian">Vegetarian</label>
-                <input type="checkbox" name="diet" value="vegetarian" onChange={handleDietsChange}/><br/>
-
-                <label htmlFor="vegan">Vegan</label>
-                <input type="checkbox" name="diet" value="vegan" onChange={handleDietsChange}/><br/>
-
-                <label htmlFor="gluten%20free">Gluten Free</label>
-                <input type="checkbox" name="diet" value="gluten%20free" onChange={handleDietsChange}/><br/>
-            </div>
-            <input type="submit"/>
-        </form>
+        </div>
     );
 }
  
