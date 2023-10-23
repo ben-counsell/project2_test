@@ -5,4 +5,16 @@ body {
     color: #eeeeee;
 }
 
-img {border-radius: 2rem;}
+img {
+  border-radius: 2rem;
+}
+
+header {
+    padding-left: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.search-bar {
+    
+}

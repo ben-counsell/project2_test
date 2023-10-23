@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { getRecipes, getThai } from './services/RecipeServices'
 import RecipeContainer from './containers/RecipeContainer'
+import Header from './components/Header'
 import './App.css'
-
 
 function App() {
   const [recipes, setRecipes] = useState([])
@@ -22,9 +22,9 @@ function App() {
     })
   }, [])
   
-  return (
+  return (  
     <>
-      <h1>...</h1>
+      <Header/>
       <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes}/>
     </>
   )
