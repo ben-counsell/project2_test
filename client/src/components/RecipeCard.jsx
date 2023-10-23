@@ -1,9 +1,9 @@
 const RecipeCard = ({recipes}) => {
-    
+
     const recipeGrid = recipes.map((recipe) => {
-        return <li key={recipe.key}>{recipe.title}<br/><img src={recipe.image}/></li>
+        return <li key={recipe.id}>{recipe.title}<br/><img src={recipe.image}/></li>
+
     })
-    
     return (
         <>
             <ul>
@@ -12,5 +12,4 @@ const RecipeCard = ({recipes}) => {
         </>
     );
 }
- 
 export default RecipeCard;
