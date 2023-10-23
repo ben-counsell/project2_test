@@ -1,11 +1,6 @@
 import apiKey from "./apiKey"
 const baseURL = 'https://api.spoonacular.com/recipes'
 
-// const filters = {
-//     cuisine:`cuisine=italian,`,
-//     diet:`diet=vegetarian,`
-// }
-
 export const getRecipes = () => {
     return fetch(`${baseURL}/complexSearch?`, {
         headers:apiKey
@@ -21,17 +16,13 @@ export const getThai = () => {
 }
 
 export const getFilteredRecipes = (filters) => {
-    let apiCall = `${baseURL}/complexSearch?`
-
+    const apiCallArray = []
     const filterValues = Object.values(filters)
-    filterValues.forEach((value) => apiCall += `${value},`)
+    filterValues.forEach((value) => apiCallArray.push(value))
     
-    // removes final comma from api call:
-    if (filterValues.length > 0) {
-        apiCall = apiCall.slice(0, -1)
-    }
+    const apiCall = apiCallArray.join('&')
 
-    return fetch(apiCall, {
+    return fetch(`${baseURL}/complexSearch?${apiCall}`, {
         headers:apiKey
     })
         .then(res => res.json())

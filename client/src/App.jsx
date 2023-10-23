@@ -10,8 +10,6 @@ function App() {
   const [thaiRecipes, setThaiRecipes] = useState([])
   const [filteredResults, setFilteredResults] = useState([])
 
-  const [filters, setFilters] = useState({})
-
   useEffect(() => {
     getRecipes()
     .then((recipes) => {
@@ -26,22 +24,17 @@ function App() {
     })
   }, [])
 
-  useEffect(() => {
-    getFilteredRecipes(filters)
+  const getFilters = (newFilters) => {
+    getFilteredRecipes(newFilters)
     .then((recipes) => {
       setFilteredResults(recipes.results)
     })
-  }, [filters])
-
-  const addFilters = (filters) => {
-    console.log(filters)
-    setFilters(filters)
   }
 
   return (  
     <>
       <Header/>
-      <FilterForm setFilters={addFilters}/>
+      <FilterForm getFilters={getFilters}/>
       <RecipeContainer filteredResults={filteredResults} recipes={recipes} thaiRecipes={thaiRecipes}/>
     </>
   )

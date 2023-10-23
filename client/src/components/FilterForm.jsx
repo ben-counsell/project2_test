@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const FilterForm = ({setFilters}) => {
+const FilterForm = ({getFilters}) => {
 
     const [cuisines, setCuisines] = useState([])
     const [diets, setDiets] = useState([])
@@ -33,9 +33,9 @@ const FilterForm = ({setFilters}) => {
         evt.preventDefault()
         const cuisineString = cuisines.join(',')
         const dietString = diets.join(',')
-        setFilters({
-            cuisine:(cuisines.length > 0 ? `cuisine=${cuisineString},` : ''),
-            diet:(diets.length > 0 ? `diet=${dietString},` : '')
+        getFilters({
+            cuisine:(cuisines.length > 0 ? `cuisine=${cuisineString}` : ''),
+            diet:(diets.length > 0 ? `diet=${dietString}` : '')
         })
     }
 
