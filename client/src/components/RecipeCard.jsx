@@ -1,16 +1,13 @@
 const RecipeCard = ({recipes}) => {
-    
-    console.log(recipes)
-
     const recipeGrid = recipes.map((recipe) => {
-        return <RecipeCard name={recipe.title} image={recipe.image} key={recipe.id}/>
+        return <li key={recipe.id}>{recipe.title}<br/><img src={recipe.image}/></li>
     })
-    
     return (
         <>
-            {recipeGrid}
+            <ul>
+                {recipeGrid}
+            </ul>
         </>
     );
 }
- 
 export default RecipeCard;
