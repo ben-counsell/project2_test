@@ -34,8 +34,8 @@ const FilterForm = ({setFilters}) => {
         const cuisineString = cuisines.join(',')
         const dietString = diets.join(',')
         setFilters({
-            cuisine:(cuisines.length > 0 ? `cuisine=${cuisineString},` : null),
-            diet:`diet=${dietString},`
+            cuisine:(cuisines.length > 0 ? `cuisine=${cuisineString},` : ''),
+            diet:(diets.length > 0 ? `diet=${dietString},` : '')
         })
     }
 

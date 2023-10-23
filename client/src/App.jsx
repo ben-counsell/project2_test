@@ -8,7 +8,9 @@ import './App.css'
 function App() {
   const [recipes, setRecipes] = useState([])
   const [thaiRecipes, setThaiRecipes] = useState([])
-  const [filteredResults, setFilteredResults] = useState({})
+  const [filteredResults, setFilteredResults] = useState([])
+
+  const [filters, setFilters] = useState({})
 
   useEffect(() => {
     getRecipes()
@@ -24,22 +26,22 @@ function App() {
     })
   }, [])
 
-  const setFilters = (filters) => {
-    console.log(filters)
-  }
+  useEffect(() => {
+    getFilteredRecipes(filters)
+    .then((recipes) => {
+      setFilteredResults(recipes.results)
+    })
+  }, [filters])
 
-//   useEffect(() => {
-//     getFilteredRecipes()
-//     // .then((recipes) => {
-//     //   setFilteredResults(recipes.results)
-//   //   })
-//   // }, [])
-// })
+  const addFilters = (filters) => {
+    console.log(filters)
+    setFilters(filters)
+  }
 
   return (  
     <>
       <Header/>
-      <FilterForm setFilters={setFilters}/>
+      <FilterForm setFilters={addFilters}/>
       <RecipeContainer filteredResults={filteredResults} recipes={recipes} thaiRecipes={thaiRecipes}/>
     </>
   )

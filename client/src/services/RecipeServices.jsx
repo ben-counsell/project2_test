@@ -1,10 +1,10 @@
 import apiKey from "./apiKey"
 const baseURL = 'https://api.spoonacular.com/recipes'
 
-const filters = {
-    cuisine:`cuisine=italian,`,
-    diet:`diet=vegetarian,`
-}
+// const filters = {
+//     cuisine:`cuisine=italian,`,
+//     diet:`diet=vegetarian,`
+// }
 
 export const getRecipes = () => {
     return fetch(`${baseURL}/complexSearch?`, {
@@ -20,7 +20,7 @@ export const getThai = () => {
         .then(res => res.json())
 }
 
-export const getFilteredRecipes = () => {
+export const getFilteredRecipes = (filters) => {
     let apiCall = `${baseURL}/complexSearch?`
 
     const filterValues = Object.values(filters)
@@ -34,5 +34,5 @@ export const getFilteredRecipes = () => {
     return fetch(apiCall, {
         headers:apiKey
     })
-
-};
+        .then(res => res.json())
+}
