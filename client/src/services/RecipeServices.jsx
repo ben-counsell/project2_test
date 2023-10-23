@@ -29,3 +29,4 @@ export const getVegan = () => {
         .then(res => res.json())
 }
 
+

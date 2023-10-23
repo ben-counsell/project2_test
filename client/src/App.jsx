@@ -17,7 +17,6 @@ function App() {
       setRecipes(recipes.results)
     })
   }, [])
-  console.log(recipes)
 
   useEffect(() => {
     getThai()

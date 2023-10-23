@@ -2,6 +2,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 const RecipeCard = ({ recipes }) => {
+  console.log({recipes})
   const recipeGrid = recipes.map((recipe) => (
     <SplideSlide key={recipe.id}>
       <div className="recipe-card">
@@ -17,6 +18,7 @@ const RecipeCard = ({ recipes }) => {
       <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
         {recipeGrid}
       </Splide>
+      
     </div>
   );
 };
