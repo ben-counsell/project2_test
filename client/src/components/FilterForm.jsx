@@ -3,7 +3,7 @@ import '../style/Accordion.css'
 
 const FilterForm = ({getFilters}) => {
 
-    const [formExpanded, setFormExpanded] = useState(false)
+    const [accordionExpanded, setAccordionExpanded] = useState(false)
 
     const [cuisines, setCuisines] = useState([])
     const [diets, setDiets] = useState([])
@@ -34,6 +34,7 @@ const FilterForm = ({getFilters}) => {
         
     const onSubmit = (evt) => {
         evt.preventDefault()
+        setAccordionExpanded(!accordionExpanded)
         const cuisineString = cuisines.join(',')
         const dietString = diets.join(',')
         getFilters({
@@ -43,14 +44,14 @@ const FilterForm = ({getFilters}) => {
     }
 
     return (
-        <div className={`accordion${formExpanded ? '-open' : ''}`}>
+        <div className={`accordion${accordionExpanded ? '-open' : ''}`}>
 
-            <button className="button" onClick={() => setFormExpanded(!formExpanded)}>
-                Filter
-                <span className="control">{formExpanded ? '—' : '+'}</span>
+            <button className="button" onClick={() => setAccordionExpanded(!accordionExpanded)}>
+                <h3>Filter</h3>
+                <span className="control">{accordionExpanded ? '—' : '+'}</span>
             </button>
 
-            <div className={`accordion-wrapper${formExpanded ? '-open' : ''}`}>
+            <div className={`accordion-wrapper${accordionExpanded ? '-open' : ''}`}>
                 <form onSubmit={onSubmit} className="accordion-form">
 
                     <div className="filter-option-form">
