@@ -21,11 +21,18 @@ function App() {
       setThaiRecipes(recipes.results)
     })
   }, [])
+
+  const handleFavouriteRecipeToggle = (id) => {
+    const freshRecipes = recipes.map((recipe) => {
+        return recipe.id === id ? {...recipe, isFavourite: !recipe.isFavourite} : recipe
+    })
+    setRecipes(freshRecipes)
+}
   
   return (  
     <>
       <Header/>
-      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes}/>
+      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} favouritesToggle={handleFavouriteRecipeToggle} />
     </>
   )
 }
