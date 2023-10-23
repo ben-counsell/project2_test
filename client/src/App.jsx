@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
-import { getRecipes, getThai } from './services/RecipeServices'
+import { getFilteredRecipes, getRecipes, getThai } from './services/RecipeServices'
 import RecipeContainer from './containers/RecipeContainer'
+import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import './App.css'
 
 function App() {
   const [recipes, setRecipes] = useState([])
   const [thaiRecipes, setThaiRecipes] = useState([])
+  const [filteredResults, setFilteredResults] = useState({})
 
   useEffect(() => {
     getRecipes()
@@ -21,11 +23,24 @@ function App() {
       setThaiRecipes(recipes.results)
     })
   }, [])
-  
+
+  const setFilters = () => {
+
+  }
+
+//   useEffect(() => {
+//     getFilteredRecipes()
+//     // .then((recipes) => {
+//     //   setFilteredResults(recipes.results)
+//   //   })
+//   // }, [])
+// })
+
   return (  
     <>
       <Header/>
-      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes}/>
+      <FilterForm setFilters={setFilters}/>
+      <RecipeContainer filteredResults={filteredResults} recipes={recipes} thaiRecipes={thaiRecipes}/>
     </>
   )
 }
