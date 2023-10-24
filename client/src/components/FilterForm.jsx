@@ -41,30 +41,33 @@ const FilterForm = ({getFilters}) => {
 
     return (
         <form onSubmit={onSubmit}>
-            <div className="cuisine-select">
-                <h3>Cuisine:</h3>
-                <label htmlFor="chinese">Chinese</label>
-                <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/><br/>
+            <div className="filtered-options">
+                <div className="cuisine-select">
+                    <h3>Cuisine:</h3>
+                    <label htmlFor="chinese">Chinese</label>
+                    <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/><br/>
 
-                <label htmlFor="thai">Thai</label>
-                <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/><br/>
+                    <label htmlFor="thai">Thai</label>
+                    <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/><br/>
 
-                <label htmlFor="italian">Italian</label>
-                <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisinesChange}/>
+                    <label htmlFor="italian">Italian</label>
+                    <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisinesChange}/>
+                </div>
+
+                <div className="diet-select">
+                    <h3>Dietary requirements:</h3>
+                    <label htmlFor="vegetarian">Vegetarian</label>
+                    <input type="checkbox" name="diet" value="vegetarian" onChange={handleDietsChange}/><br/>
+
+                    <label htmlFor="vegan">Vegan</label>
+                    <input type="checkbox" name="diet" value="vegan" onChange={handleDietsChange}/><br/>
+
+                    <label htmlFor="gluten%20free">Gluten Free</label>
+                    <input type="checkbox" name="diet" value="gluten%20free" onChange={handleDietsChange}/><br/>
+                </div>
+                <input className="filter-submit-button" type="submit"/>
             </div>
-
-            <div className="diet-select">
-                <h3>Dietary requirements:</h3>
-                <label htmlFor="vegetarian">Vegetarian</label>
-                <input type="checkbox" name="diet" value="vegetarian" onChange={handleDietsChange}/><br/>
-
-                <label htmlFor="vegan">Vegan</label>
-                <input type="checkbox" name="diet" value="vegan" onChange={handleDietsChange}/><br/>
-
-                <label htmlFor="gluten%20free">Gluten Free</label>
-                <input type="checkbox" name="diet" value="gluten%20free" onChange={handleDietsChange}/><br/>
-            </div>
-            <input type="submit"/>
+            
         </form>
     );
 }
