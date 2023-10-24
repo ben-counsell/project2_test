@@ -1,0 +1,21 @@
+.recipe-container {
+    margin-top: 15px;
+}
+
+.carousel-title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px;
+    padding: 20px;
+    background-color: rgb(7, 67, 35);
+    color: white;
+    letter-spacing: 1px;
+}
+
+.carousel {
+    margin: 20px;
+}
+
+img {
+    border-radius: 2rem;
+    width: 250px;
+}

@@ -6,7 +6,7 @@ function RecipeContainer({carouselRecipes, filteredResults, favouritesToggle}) {
 
     const displayFilteredResults = () => {
         if (filteredResults.length > 0) {
-            return <Carousel recipes={filteredResults} title={`${filteredResults.length} results`}/>
+            return <Carousel recipes={filteredResults} title={`SHOWING ${filteredResults.length} RESULTS`}/>
         } else if (filteredResults.noFilters) {
             return null
         } else {
@@ -30,10 +30,10 @@ function RecipeContainer({carouselRecipes, filteredResults, favouritesToggle}) {
         <>
             <div className="recipe-container">
                 {filterResults}
-                {carouselRecipes.random ? <Carousel recipes={carouselRecipes.random} title='Random recipes'/> : null}
-                {carouselRecipes.vegan ? <Carousel recipes={carouselRecipes.vegan} title='Vegan options'/> : null}
-                {carouselRecipes.vegetarian ? <Carousel recipes={carouselRecipes.vegetarian} title='Veggie choices'/> : null}
-                {carouselRecipes.thai ? <Carousel recipes={carouselRecipes.thai} title='Thai options'/> : null}
+                {carouselRecipes.random ? <Carousel recipes={carouselRecipes.random} title='RECIPE INSPIRATION'/> : null}
+                {carouselRecipes.vegan ? <Carousel recipes={carouselRecipes.vegan} title='VEGAN RECIPES'/> : null}
+                {carouselRecipes.vegetarian ? <Carousel recipes={carouselRecipes.vegetarian} title='VEGETARIAN RECIPES'/> : null}
+                {carouselRecipes.thai ? <Carousel recipes={carouselRecipes.thai} title='THAI RECIPES'/> : null}
             </div>
             {/* <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} /> */}
         </>

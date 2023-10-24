@@ -63,7 +63,7 @@ a:link{
   height: 100%;
   font-size: 25px;
   margin-left: 10px;
-  background-color: rgb(7, 67, 35);;
+  background-color: rgb(7, 67, 35);
   width: 50px;
   color: white;
   border-radius: 1rem;
@@ -71,7 +71,9 @@ a:link{
 
 .search-bar button:hover {
   background-color: #EBF8DF; 
-  color: #03917C; 
+  color: #03917C;
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 /* filter form */
@@ -80,19 +82,3 @@ a:link{
 
 /* recipe container  */
 
-.carousel-title {
-  margin: 0px;
-  padding: 20px;
-  background-color: rgb(7, 67, 35);
-  color: white
-}
-
-.carousel {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-img {
-  border-radius: 2rem;
-  width: 250px;
-}
