@@ -2,7 +2,8 @@
 
 body {
     background-color: #eec1c1;
-    color: black
+    color: black;
+    margin: 0% 5%;
 }
 
 img {
@@ -19,4 +20,3 @@ header {
     
 }
 
-.button-heart{}

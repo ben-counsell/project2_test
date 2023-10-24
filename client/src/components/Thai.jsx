@@ -17,7 +17,7 @@ const Thai = ({ thaiRecipes }) => {
   return (
     <div>
       <h3>Thai Options</h3>
-      <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
+      <Splide options={{ type: 'loop', perPage: 3, pagination: false, drag: 'free', gap: '5rem' }}>
         
         {thaiCard}
         

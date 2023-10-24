@@ -17,7 +17,7 @@ const FilteredResults = ({ recipes }) => {
   return (
     <div>
       <h3>Results:</h3>
-      <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
+      <Splide options={{ type: 'loop', perPage: 3, pagination: false, drag: 'free', gap: '5rem' }}>
         {recipeGrid}
       </Splide>
     </div>
