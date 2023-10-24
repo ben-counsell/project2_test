@@ -60,7 +60,7 @@ function App() {
       </div>
       { searchResults.length === 0 
       ?<RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
-      :<SearchResults/>
+      :<SearchResults recipes={searchResults} />
       }
     </>
   )
