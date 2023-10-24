@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import apiKey from "../services/apiKey";
+const baseURL = 'https://api.spoonacular.com/recipes'
 
-const SearchBar = () => {
+const SearchBar = ({ setSearchResults }) => {
     const [searchTerm, setSearchTerm] = useState("")
-
-    const onSubmit = (e) => {
-        e.preventDefault();
+    
+    const fetchData = (value) => {
+        fetch(`${baseURL}/complexSearch?query=${searchTerm}`, {headers:apiKey})
+        .then(response => response.json())
+        .then(data => data.results)
+        .then(results => setSearchResults(results))
     }
 
-    const onChange = (e) => {
-        setSearchTerm(e.target.value)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetchData(searchTerm)
+    }
+
+    const handleChange = (value) => {
+        setSearchTerm(value)
     }
 
     return (
         <div className="search-bar">
-        <form onSubmit={onSubmit}>
-            <input type="text" placeholder="Search recipes..." value={searchTerm} onChange={onChange}/>
-            <button type="submit"><i className="fa fa-search"></i></button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Search all recipes..." value={searchTerm} onChange={e => handleChange(e.target.value)}/>
+                <button type="submit"><i className="fa fa-search"></i></button>
+            </form>
         </div>
     )
 

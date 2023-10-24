@@ -4,11 +4,13 @@ import RecipeContainer from './containers/RecipeContainer'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import './style/App.css'
+import SearchResults from './components/SearchResults'
 
 function App() {
   
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
@@ -46,10 +48,14 @@ function App() {
   return (  
     <>
       <div className="container">
-        <Header/>
+        <Header setSearchResults={setSearchResults} />
         <FilterForm getFilters={getFilters}/>
       </div>
-      <RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>
+
+      { searchResults.length === 0 
+      ?<RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>
+      :<SearchResults recipes={searchResults} />
+      }
     </>
   )
 }
