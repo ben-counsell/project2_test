@@ -8,13 +8,12 @@ import SearchResults from './components/SearchResults'
 
 function App() {
   
-  const customer = {
+  const [customer, setCustomer] = useState({
     name: "Lennie Harman",
-    dietary_preference: "vegetarian",
-    intolerances: "gluten",
+    dietary_preference: "",
+    intolerances: "",
     favourites: []
-  }
-  // ^^ temporary, until we add ability to fetch customer data from the db
+  })
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
@@ -69,4 +68,3 @@ function App() {
 }
 
 export default App
-

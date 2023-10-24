@@ -4,6 +4,5 @@ const app = express();
 const cors = require("cors");
 // create router require code
 
-
 app.use(cors());
 app.use(express.json());
