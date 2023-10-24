@@ -37,4 +37,3 @@ export const getFilteredRecipes = (filters) => {
     })
         .then(res => res.json())
 }
-

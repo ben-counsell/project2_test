@@ -52,6 +52,14 @@ function App() {
     })
   }
   
+  const handleFavouriteRecipeToggle = (id) => {
+    console.log(id)
+    // const freshRecipes = recipes.map((recipe) => {
+    //     return recipe.id === id ? {...recipe, isFavourite: !recipe.isFavourite} : recipe
+    // })
+    // setRecipes(freshRecipes)
+  }
+  
   return (  
     <>
       <div className="container">
