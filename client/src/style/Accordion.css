@@ -1,6 +1,9 @@
 .accordion {
     list-style: none;
     margin: 0px;
+    /* width: 80%;
+    display: flex;
+    justify-content: center; */
 }
 
 .button {
@@ -26,15 +29,20 @@
 .accordion-wrapper-open {
     height: 200px;
     transition: ease 0.3s;
+
 }
 
 .accordion-form {
-    background-color: #2e2e2e;
+    background-color: #EBF8DF;
     padding: 20px;
 }
 
+.accordion .button {
+    background-color: #03917C
+
+}
 .accordion-open .button {
-    background-color: #6e6e6e;
+    background-color: #03917C;
 }
 
 .filter-option-form {
@@ -58,4 +66,4 @@
 
 .filter-select {
     width: 150px
-}
+} 
