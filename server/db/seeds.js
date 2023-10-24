@@ -13,7 +13,7 @@ db.users.insertMany([
 
     {
         name: "Gina Brand",
-        dietary_preference: "gluten free",
+        dietary_preference: "gluten%20free",
         favourites: []
     },
 
@@ -37,7 +37,7 @@ db.users.insertMany([
 
     {
         name: "Eleri Owens", 
-        dietary_preference: "gluten free",
+        dietary_preference: "gluten%20free",
         favourites: []
     },
 
@@ -49,7 +49,7 @@ db.users.insertMany([
 
     {
         name: "Bridie O'Donnell",
-        dietary_preference: "dairy free",
+        dietary_preference: "dairy%20free",
         favourites: []
     },
 

@@ -49,13 +49,20 @@ function App() {
     })
   }
   
+  const handleFavouriteRecipeToggle = (id) => {
+    const freshRecipes = recipes.map((recipe) => {
+        return recipe.id === id ? {...recipe, isFavourite: !recipe.isFavourite} : recipe
+    })
+    setRecipes(freshRecipes)
+  }
+  
   return (  
     <>
       <div className="container">
         <Header/>
         <FilterForm getFilters={getFilters}/>
       </div>
-      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
+      <RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
     </>
   )
 }
