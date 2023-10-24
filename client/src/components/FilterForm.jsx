@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import '../style/Accordion.css'
 
 const FilterForm = ({getFilters}) => {
@@ -57,14 +57,53 @@ const FilterForm = ({getFilters}) => {
                     <div className="filter-option-form">
                         <div className="filter-select">
                             <h3>Cuisine:</h3><br/>
-                            <label htmlFor="chinese">Chinese</label>
-                            <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/><br/>
-
-                            <label htmlFor="thai">Thai</label>
-                            <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/><br/>
-
                             <label htmlFor="italian">Italian</label>
                             <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="french">French</label>
+                            <input type="checkbox" name="cuisine" value="french" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="spanish">Spanish</label>
+                            <input type="checkbox" name="cuisine" value="spanish" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="greek">Greek</label>
+                            <input type="checkbox" name="cuisine" value="greek" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="african">African</label>
+                            <input type="checkbox" name="cuisine" value="african" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="chinese">Chinese</label>
+                            <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="thai">Thai</label>
+                            <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="vietnamese">Vietnamese</label>
+                            <input type="checkbox" name="cuisine" value="vietnamese" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="korean">Korean</label>
+                            <input type="checkbox" name="cuisine" value="korean" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="japanese">Japanese</label>
+                            <input type="checkbox" name="cuisine" value="japanese" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="indian">Indian</label>
+                            <input type="checkbox" name="cuisine" value="indian" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="latin%20american">Latin American</label>
+                            <input type="checkbox" name="cuisine" value="latin%20american" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="mexican">Mexican</label>
+                            <input type="checkbox" name="cuisine" value="mexican" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="caribbean">Caribbean</label>
+                            <input type="checkbox" name="cuisine" value="caribbean" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="cajun">Cajun</label>
+                            <input type="checkbox" name="cuisine" value="cajun" onChange={handleCuisinesChange}/>
+
+                            <label htmlFor="american">American</label>
+                            <input type="checkbox" name="cuisine" value="american" onChange={handleCuisinesChange}/>
                         </div>
 
                         <div className="filter-select">

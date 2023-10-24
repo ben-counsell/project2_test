@@ -29,12 +29,12 @@
 }
 
 .accordion-form {
-    background-color: #2e2e2e;
+    background-color: #dddddd;
     padding: 20px;
 }
 
 .accordion-open .button {
-    background-color: #6e6e6e;
+    background-color: #707070;
 }
 
 .filter-option-form {
