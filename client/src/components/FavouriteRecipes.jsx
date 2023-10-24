@@ -14,10 +14,6 @@ const FavouriteRecipes = ({recipes, OnRecipeSelected}) => {
                         <img src={recipe.image} alt={`Picture for ${recipe.title}`}/>
                     </span>
                 )})}
-            
-        
-        
-        
         </>
     )
 

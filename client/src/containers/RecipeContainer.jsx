@@ -1,12 +1,20 @@
 import FavouriteRecipes from "../components/FavouriteRecipes"
-import RecipeCard from "../components/RecipeCard"
-import FilteredResults from "../components/FilteredResults"
-import Thai from "../components/Thai"
-import Veggie from "../components/Veggie"
-import Vegan from "../components/Vegan"
+import Carousel from "../components/Carousel"
 import { useState } from "react"
 
-function RecipeContainer({recipes, thaiRecipes, veggieRecipes, veganRecipes, filteredResults, favouritesToggle}) {
+function RecipeContainer({carouselRecipes, filteredResults, favouritesToggle}) {
+
+    const displayFilteredResults = () => {
+        if (filteredResults.length > 0) {
+            return <Carousel recipes={filteredResults} title={`${filteredResults.length} results`}/>
+        } else if (filteredResults.noFilters) {
+            return null
+        } else {
+            return <p>Your search returned no results</p>
+        }
+    }
+
+    const filterResults = displayFilteredResults(filteredResults)
 
     // don't think the below code is finished so i commented it out to make sure nothing breaks
     // - ben
@@ -21,11 +29,11 @@ function RecipeContainer({recipes, thaiRecipes, veggieRecipes, veganRecipes, fil
     return (
         <>
             <div className="recipe-container">
-                {filteredResults.length > 0 ? <FilteredResults recipes={filteredResults}/> : null}
-                <RecipeCard recipes={recipes}/>
-                <Vegan veganRecipes={veganRecipes}/>
-                <Veggie veggieRecipes={veggieRecipes}/>
-                <Thai thaiRecipes={thaiRecipes}/>
+                {filterResults}
+                {carouselRecipes.random ? <Carousel recipes={carouselRecipes.random} title='Random recipes'/> : null}
+                {carouselRecipes.vegan ? <Carousel recipes={carouselRecipes.vegan} title='Vegan options'/> : null}
+                {carouselRecipes.vegetarian ? <Carousel recipes={carouselRecipes.vegetarian} title='Veggie choices'/> : null}
+                {carouselRecipes.thai ? <Carousel recipes={carouselRecipes.thai} title='Thai options'/> : null}
             </div>
             {/* <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} /> */}
         </>
