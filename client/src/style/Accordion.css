@@ -4,8 +4,8 @@
 }
 
 .button {
-    background-color: #4e4e4e;
-    color: #eeeeee;
+    background-color: #FCFEFA;
+    color: #074323;
     text-align: left;
     display: flex;
     flex-wrap: wrap;
@@ -24,17 +24,12 @@
 }
 
 .accordion-wrapper-open {
-    height: 200px;
     transition: ease 0.3s;
 }
 
 .accordion-form {
     background-color: #dddddd;
     padding: 20px;
-}
-
-.accordion-open .button {
-    background-color: #707070;
 }
 
 .filter-option-form {
@@ -49,7 +44,7 @@
   .filter-submit-button {
     display: flex;
     /* justify-content: baseline; */
-    background-color: pink;
+    background-color: #FCCA85;
     height: fit-content;
     font-size: medium;
     border-radius: 0.5rem;
@@ -57,5 +52,5 @@
   }
 
 .filter-select {
-    width: 150px
+    width: 200px
 }

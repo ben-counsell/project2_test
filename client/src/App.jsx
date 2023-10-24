@@ -11,7 +11,7 @@ function App() {
   const [thaiRecipes, setThaiRecipes] = useState([])
   const [veggieRecipes, setVeggieRecipes] = useState([])
   const [veganRecipes, setVeganRecipes] = useState([])
-  const [filteredResults, setFilteredResults] = useState([])
+  const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
 
 
   useEffect(() => {
