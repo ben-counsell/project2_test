@@ -4,6 +4,7 @@ import RecipeContainer from './containers/RecipeContainer'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import './style/App.css'
+import SearchResults from './components/SearchResults'
 
 function App() {
   
@@ -12,6 +13,8 @@ function App() {
   const [veggieRecipes, setVeggieRecipes] = useState([])
   const [veganRecipes, setVeganRecipes] = useState([])
   const [filteredResults, setFilteredResults] = useState([])
+
+  const [searchResults, setSearchResults] = useState([])
 
 
   useEffect(() => {
@@ -52,10 +55,13 @@ function App() {
   return (  
     <>
       <div className="container">
-        <Header/>
+        <Header setSearchResults={setSearchResults} />
         <FilterForm getFilters={getFilters}/>
       </div>
-      <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
+      { searchResults.length === 0 
+      ?<RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
+      :<SearchResults/>
+      }
     </>
   )
 }
