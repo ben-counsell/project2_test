@@ -2,7 +2,7 @@ import apiKey from "./apiKey"
 const baseURL = 'https://api.spoonacular.com/recipes'
 
 export const getRecipes = () => {
-    return fetch(`${baseURL}/complexSearch?sort=random`, {
+    return fetch(`${baseURL}/complexSearch?sort=random&number=50`, {
         headers:apiKey
     })
         .then(res => res.json())
@@ -10,7 +10,7 @@ export const getRecipes = () => {
 
 export const getThai = () => {
 
-    return fetch(`${baseURL}/complexSearch?query=Thai&sort=random`, {
+    return fetch(`${baseURL}/complexSearch?query=Thai&sort=random&number=50`, {
       headers:apiKey
     })
         .then(res => res.json())
@@ -18,14 +18,14 @@ export const getThai = () => {
 
 
 export const getVeggie = () => {
-    return fetch(`${baseURL}/complexSearch?diet=Vegetarian&sort=random`, {
+    return fetch(`${baseURL}/complexSearch?diet=Vegetarian&sort=random&number=50`, {
         headers:apiKey
     })
         .then(res => res.json())
 }
 
 export const getVegan = () => {
-    return fetch(`${baseURL}/complexSearch?diet=Vegan&sort=random`, {
+    return fetch(`${baseURL}/complexSearch?diet=Vegan&sort=random&number=50`, {
         headers:apiKey
     })
         .then(res => res.json())
@@ -40,7 +40,7 @@ export const getFilteredRecipes = (filters) => {
     
     const apiCall = apiCallArray.join('&')
 
-    return fetch(`${baseURL}/complexSearch?${apiCall}`, {
+    return fetch(`${baseURL}/complexSearch?${apiCall}&number=50`, {
         headers:apiKey
     })
         .then(res => res.json())
