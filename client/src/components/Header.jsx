@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <>
         <header>
-            <h1> Recipe App </h1>
+            <h1> Recipe Book </h1>
             <nav>
                 <ul>
                     <li>
@@ -16,9 +16,9 @@ const Header = () => {
                         <a href="/favourites">Favourites</a>
                     </li>
                 </ul>
-                < SearchBar />
             </nav>
         </header>
+        < SearchBar />
         </>
     )
 }

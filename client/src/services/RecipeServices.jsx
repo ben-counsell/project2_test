@@ -10,7 +10,7 @@ export const getRecipes = () => {
 
 export const getThai = () => {
     return fetch(`${baseURL}/complexSearch?query=Thai&sort=random`, {
-      headers:apiKey
+        headers:apiKey
     })
         .then(res => res.json())
 }

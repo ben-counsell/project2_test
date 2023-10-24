@@ -80,7 +80,7 @@ const FilterForm = ({getFilters}) => {
                         </div>
                     </div>
 
-                    <input type="submit"/>
+                    <input className="filter-submit-button" type="submit"/>
 
                 </form>
             </div>
