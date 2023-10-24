@@ -5,7 +5,7 @@ const Vegan = ({ veganRecipes }) => {
   const veganCard = veganRecipes.map((recipe) => (
     <SplideSlide key={recipe.id}>
       <div className="recipe-card">
-        <h3>{recipe.title}</h3>
+        <h4>{recipe.title}</h4>
         <img src={recipe.image} alt={`Picture for ${recipe.title}`} />
       </div>
     </SplideSlide>
@@ -13,11 +13,13 @@ const Vegan = ({ veganRecipes }) => {
 
   return (
     <div>
-      <h3>Vegan Options</h3>
-      <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
-        
-        {veganCard}
-      </Splide>
+      <h3 className='carousel-title'>Vegan Options</h3>
+      <div className='carousel'>  
+        <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
+          
+          {veganCard}
+        </Splide>
+      </div>
     </div>
   );
 };

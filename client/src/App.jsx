@@ -3,7 +3,7 @@ import { getFilteredRecipes, getVeggie, getVegan, getRecipes, getThai } from './
 import RecipeContainer from './containers/RecipeContainer'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
-import './App.css'
+import './style/App.css'
 
 function App() {
   
@@ -42,7 +42,6 @@ function App() {
     })
   }, [])
   
-  
   const getFilters = (newFilters) => {
     getFilteredRecipes(newFilters)
     .then((recipes) => {
@@ -52,8 +51,10 @@ function App() {
   
   return (  
     <>
-      <Header/>
-      <FilterForm getFilters={getFilters}/>
+      <div className="container">
+        <Header/>
+        <FilterForm getFilters={getFilters}/>
+      </div>
       <RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
     </>
   )

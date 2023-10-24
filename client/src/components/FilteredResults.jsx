@@ -5,7 +5,7 @@ const FilteredResults = ({ recipes }) => {
   const recipeGrid = recipes.map((recipe) => (
     <SplideSlide key={recipe.id}>
       <div className="recipe-card">
-        <h3>{recipe.title}</h3>
+        <h4>{recipe.title}</h4>
         <img src={recipe.image} alt={`Picture for ${recipe.title}`} />
       </div>
     </SplideSlide>
@@ -13,10 +13,12 @@ const FilteredResults = ({ recipes }) => {
 
   return (
     <div>
-      <h3>Results:</h3>
-      <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
-        {recipeGrid}
-      </Splide>
+      <h3 className='carousel-title'>Results</h3>
+      <div className='carousel'>  
+        <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
+          {recipeGrid}
+        </Splide>
+      </div>
     </div>
   );
 };
