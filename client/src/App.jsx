@@ -8,6 +8,14 @@ import SearchResults from './components/SearchResults'
 
 function App() {
   
+  const customer = {
+    name: "Lennie Harman",
+    dietary_preference: "vegetarian",
+    intolerances: "gluten",
+    favourites: []
+  }
+  // ^^ temporary, until we add ability to fetch customer data from the db
+
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
@@ -16,7 +24,7 @@ function App() {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {
-      return getRecipesForCarousel(request)
+      return getRecipesForCarousel(request, customer.dietary_preference, customer.intolerances)
     })
     Promise.all(newCarouselRecipes)
       .then(recipeArray => {

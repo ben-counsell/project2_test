@@ -1,9 +1,13 @@
 import apiKey from "./apiKey"
 const baseURL = 'https://api.spoonacular.com/recipes'
 
-export const getRecipesForCarousel = (query) => {
+export const getRecipesForCarousel = (query, dietary_requirements, intolerances) => {
     let apiCall = ''
     query != '' ? apiCall = 'query=' + query : null
+    dietary_requirements ? apiCall += `&diet=${dietary_requirements}` : null
+    intolerances ? apiCall += `&intolerances=${intolerances}` : null
+
+    console.log(apiCall)
 
     return fetch(`${baseURL}/complexSearch?${apiCall}&sort=random`, {
         headers:apiKey
