@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getFilteredRecipes, getVeggie, getVegan, getRecipes, getThai } from './services/RecipeServices'
+import { getFilteredRecipes, getRecipesForCarousel } from './services/RecipeServices'
 import RecipeContainer from './containers/RecipeContainer'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
@@ -7,39 +7,25 @@ import './style/App.css'
 
 function App() {
   
-  const [recipes, setRecipes] = useState([])
-  const [thaiRecipes, setThaiRecipes] = useState([])
-  const [veggieRecipes, setVeggieRecipes] = useState([])
-  const [veganRecipes, setVeganRecipes] = useState([])
+  const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
 
+  useEffect(() => {
+    let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
-  useEffect(() => {
-    getRecipes()
-    .then((recipes) => {
-      setRecipes(recipes.results)
+    const newCarouselRecipes = carouselRequests.map((request) => {
+      return getRecipesForCarousel(request)
     })
-  }, [])
-
-  useEffect(() => {
-    getThai()
-    .then((recipes) => {
-      setThaiRecipes(recipes.results)
-    })
-  }, [])
-
-  useEffect(() => {
-    getVeggie()
-    .then((recipes) => {
-      setVeggieRecipes(recipes.results)
-    })
-  }, [])
-  
-  useEffect(() => {
-    getVegan()
-    .then((recipes) => {
-      setVeganRecipes(recipes.results)
-    })
+    Promise.all(newCarouselRecipes)
+      .then(recipeArray => {
+        const carouselRecipesObject = {
+          random : recipeArray[0].results,
+          vegetarian : recipeArray[1].results,
+          vegan : recipeArray[2].results,
+          thai : recipeArray[3].results
+        }
+        setCarouselRecipes(carouselRecipesObject)
+      })
   }, [])
   
   const getFilters = (newFilters) => {
@@ -63,7 +49,7 @@ function App() {
         <Header/>
         <FilterForm getFilters={getFilters}/>
       </div>
-      <RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
+      <RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>
     </>
   )
 }

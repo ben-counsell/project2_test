@@ -2,7 +2,7 @@ import FavouriteRecipes from "../components/FavouriteRecipes"
 import Carousel from "../components/Carousel"
 import { useState } from "react"
 
-function RecipeContainer({recipes, thaiRecipes, veggieRecipes, veganRecipes, filteredResults, favouritesToggle}) {
+function RecipeContainer({carouselRecipes, filteredResults, favouritesToggle}) {
 
     const displayFilteredResults = () => {
         if (filteredResults.length > 0) {
@@ -30,10 +30,10 @@ function RecipeContainer({recipes, thaiRecipes, veggieRecipes, veganRecipes, fil
         <>
             <div className="recipe-container">
                 {filterResults}
-                <Carousel recipes={recipes} title='Random recipes'/>
-                <Carousel recipes={veganRecipes} title='Vegan options'/>
-                <Carousel recipes={veggieRecipes} title='Veggie choices'/>
-                <Carousel recipes={thaiRecipes} title='Thai options'/>
+                {carouselRecipes.random ? <Carousel recipes={carouselRecipes.random} title='Random recipes'/> : null}
+                {carouselRecipes.vegan ? <Carousel recipes={carouselRecipes.vegan} title='Vegan options'/> : null}
+                {carouselRecipes.vegetarian ? <Carousel recipes={carouselRecipes.vegetarian} title='Veggie choices'/> : null}
+                {carouselRecipes.thai ? <Carousel recipes={carouselRecipes.thai} title='Thai options'/> : null}
             </div>
             {/* <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} /> */}
         </>
