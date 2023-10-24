@@ -39,7 +39,7 @@ function App() {
   }, [])
   
   const getFilters = (newFilters) => {
-    getFilteredRecipes(newFilters)
+    getFilteredRecipes(newFilters, customer.dietary_preference, customer.intolerances)
     .then((recipes) => {
       setFilteredResults(recipes.results)
     })
