@@ -1,8 +1,8 @@
 
 
 body {
-    background-color: #1e1e1e;
-    color: #eeeeee;
+    background-color: #eec1c1;
+    color: black
 }
 
 img {
@@ -18,3 +18,5 @@ header {
 .search-bar {
     
 }
+
+.button-heart{}
