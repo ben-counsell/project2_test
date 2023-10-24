@@ -27,7 +27,7 @@ function RecipeContainer({recipes, thaiRecipes, veggieRecipes, veganRecipes, fil
                 <Veggie veggieRecipes={veggieRecipes}/>
                 <Thai thaiRecipes={thaiRecipes}/>
             </div>
-            <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} />
+            {/* <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} /> */}
         </>
     )
 }
