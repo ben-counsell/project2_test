@@ -15,7 +15,7 @@ const SearchBar = () => {
         <div className="search-bar">
         <form onSubmit={onSubmit}>
             <input type="text" placeholder="Search recipes..." value={searchTerm} onChange={onChange}/>
-            <button type="submit">Search</button>
+            <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         </div>
     )
