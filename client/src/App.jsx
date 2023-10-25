@@ -5,6 +5,7 @@ import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import './style/App.css'
 import './style/RecipeLists.css'
+import './style/Search.css'
 import SearchResults from './components/SearchResults'
 import { getUser } from './services/UserServices'
 
