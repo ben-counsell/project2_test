@@ -10,6 +10,7 @@ import apiKey from '../services/apiKey';
 
 
 
+
 const Carousel = ({ recipes, title }) => {
 
 
@@ -57,7 +58,6 @@ const Carousel = ({ recipes, title }) => {
 
           </div>
         </div>
-
       </Link>
     </SplideSlide>
 

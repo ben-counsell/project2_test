@@ -24,7 +24,7 @@ const SearchBar = ({ setSearchResults }) => {
     return (
         <div className="search-bar">
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Search all recipes..." value={searchTerm} onChange={e => handleChange(e.target.value)}/>
+                <input type="text" placeholder="Search for recipe..." value={searchTerm} onChange={e => handleChange(e.target.value)}/>
                 <button type="submit"><i className="fa fa-search"></i></button>
             </form>
         </div>
