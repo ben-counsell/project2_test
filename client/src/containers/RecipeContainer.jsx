@@ -22,7 +22,7 @@ function RecipeContainer({carouselRecipes, filteredResults, favouritesToggle}) {
         <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>}/>
-            <Route path="/recipe" element={<Recipe/>}/>
+            <Route path="/recipe/:id" element={<Recipe/>}/>
             <Route path="/favourites" element={<Favourites/>}/>
         </Routes>
         </BrowserRouter>
