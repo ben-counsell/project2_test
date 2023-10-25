@@ -7,13 +7,12 @@ import { RxCross2 } from 'react-icons/rx'
 
 import "../style/Recipe.css"
 
-const Recipe = () => {
+const Recipe = ({ user, newFavourite, removeFavourite }) => {
 
     let params = useParams()
     const [recipeDetails, setRecipeDetails] = useState()
     const [activeButton, setActiveButton] = useState("Summary")
     const [isFavourite, setIsFavourite] = useState(false)
-
 
     const fetchRecipe = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.id}/information`, {
@@ -24,12 +23,19 @@ const Recipe = () => {
     }
 
     const handleClick = () => {
+        !isFavourite ? newFavourite(user._id, params.id) : removeFavourite(user._id, params.id)
         setIsFavourite(isFavourite ? false : true);
     };
 
     useEffect(() => {
         fetchRecipe()
     }, [params.name])
+
+    useEffect(() => {
+        if (user.favourites && user.favourites.includes(params.id)) {
+            setIsFavourite(true)
+        }
+    }, [user])
 
     if (!recipeDetails) {
         return (
@@ -39,8 +45,8 @@ const Recipe = () => {
         );
     }
 
-    const favouriteIcon = isFavourite ? <BsHeart onClick={handleClick} size="70" className="heart-empty" />
-        : <BsHeartFill onClick={handleClick} size="70" className="heart-full" />
+    const favouriteIcon = isFavourite ? <BsHeartFill onClick={handleClick} size="70" className="heart-full" />
+        : <BsHeart onClick={handleClick} size="70" className="heart-empty" />
 
 
     return (

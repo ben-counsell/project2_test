@@ -6,27 +6,22 @@ import Header from './components/Header'
 import './style/App.css'
 import './style/RecipeLists.css'
 import SearchResults from './components/SearchResults'
-import { getUser } from './services/UserServices'
+import { getUser, saveFavourite, deleteFavourite } from './services/UserServices'
 
 function App() {
   
-  // const [customer, setCustomer] = useState({
-  //   name: "Lennie Harman",
-  //   dietary_preference: "",
-  //   intolerances: "",
-  //   favourites: []
-  // })
+  const loggedInUser = '6538f63a7dec7c6a518882b9'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
-  const [customer, setCustomers] = useState({})
+  const [user, setUser] = useState({favourites:''})
 
   useEffect(() => {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {
-      return getRecipesForCarousel(request, customer.dietary_preference, customer.intolerances)
+      return getRecipesForCarousel(request, user.dietary_preference, user.intolerances)
     })
     Promise.all(newCarouselRecipes)
       .then(recipeArray => {
@@ -41,23 +36,27 @@ function App() {
   }, [])
   
   useEffect(() => {
-    getUser("65364dea76bc6c89f5de108b")
-    .then((user) => setCustomers(user))
-
+    getUser(loggedInUser)
+    .then((user) => setUser(user))
   }, [])
+
   const getFilters = (newFilters) => {
-    getFilteredRecipes(newFilters, customer.dietary_preference, customer.intolerances)
+    getFilteredRecipes(newFilters, user.dietary_preference, user.intolerances)
     .then((recipes) => {
       setFilteredResults(recipes.results)
     })
   }
   
-  const handleFavouriteRecipeToggle = (id) => {
-    console.log(id)
-    // const freshRecipes = recipes.map((recipe) => {
-    //     return recipe.id === id ? {...recipe, isFavourite: !recipe.isFavourite} : recipe
-    // })
-    // setRecipes(freshRecipes)
+  const newFavourite = (userId, recipeId) => {
+    saveFavourite(userId, recipeId)
+    .then(getUser(userId))
+    .then((user) => setUser(user))  
+  }
+
+  const removeFavourite = (userId, recipeId) => {
+    deleteFavourite(userId, recipeId)
+    .then(getUser(userId))
+    .then((user) => setUser(user))  
   }
   
   return (  
@@ -65,11 +64,11 @@ function App() {
       <div className="container">
         <Header setSearchResults={setSearchResults} />
         <FilterForm getFilters={getFilters}/>
-        <br />
+        <br/>
       </div>
 
       { searchResults.length === 0 
-      ?<RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>
+      ?<RecipeContainer carouselRecipes={carouselRecipes} filteredResults={filteredResults} user={user} newFavourite={newFavourite} removeFavourite={removeFavourite}/>
       :<SearchResults recipes={searchResults} />
       }
     </>
