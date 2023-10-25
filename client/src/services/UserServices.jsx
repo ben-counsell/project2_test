@@ -20,3 +20,7 @@ export const deleteFavourite = (userId, recipeId) => {
     })
     .then(res => res.json())
 }
+
+export const updateCustomerPreferences = (dietary_requirements, intolerances) => {
+    return fetch `baseUrl`
+}
