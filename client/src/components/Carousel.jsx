@@ -5,7 +5,7 @@ const Carousel = ({ recipes, title }) => {
   const Carousel = recipes.map((recipe) => (
     <SplideSlide key={recipe.id}>
       <div className="recipe-card">
-        <h4>{recipe.title}</h4>
+        <h3>{recipe.title}</h3>
         <img src={recipe.image} alt={`Picture for ${recipe.title}`} />
       </div>
     </SplideSlide>
@@ -13,7 +13,7 @@ const Carousel = ({ recipes, title }) => {
 
   return (
     <div>
-      <h3 className='carousel-title'>{title}</h3>
+      <h2 className='carousel-title'>{title}</h2>
       <div className='carousel'>        
         <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
           {Carousel}
