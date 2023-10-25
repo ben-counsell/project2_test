@@ -6,7 +6,7 @@
 .accordion .button {
     color: #074323;
     background-color: #EBF8DF;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -18,14 +18,25 @@
     border: none;
 }
 
+/* .accordion .button {
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    width: 30%;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+} */
+
 .control {
     font-size: 30px;
-}
+} 
 
 .accordion-open .button {
     color: #074323;
     background-color: #03917C;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
