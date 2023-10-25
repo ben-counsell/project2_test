@@ -5,19 +5,21 @@ import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import './style/App.css'
 import SearchResults from './components/SearchResults'
+import { getUser } from './services/UserServices'
 
 function App() {
   
-  const [customer, setCustomer] = useState({
-    name: "Lennie Harman",
-    dietary_preference: "",
-    intolerances: "",
-    favourites: []
-  })
+  // const [customer, setCustomer] = useState({
+  //   name: "Lennie Harman",
+  //   dietary_preference: "",
+  //   intolerances: "",
+  //   favourites: []
+  // })
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
+  const [customer, setCustomers] = useState({})
 
   useEffect(() => {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
@@ -37,6 +39,11 @@ function App() {
       })
   }, [])
   
+  useEffect(() => {
+    getUser("65364dea76bc6c89f5de108b")
+    .then((user) => setCustomers(user))
+
+  }, [])
   const getFilters = (newFilters) => {
     getFilteredRecipes(newFilters, customer.dietary_preference, customer.intolerances)
     .then((recipes) => {
