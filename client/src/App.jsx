@@ -4,6 +4,7 @@ import RecipeContainer from './containers/RecipeContainer'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import './style/App.css'
+import './style/RecipeLists.css'
 import SearchResults from './components/SearchResults'
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
       <div className="container">
         <Header setSearchResults={setSearchResults} />
         <FilterForm getFilters={getFilters}/>
+        <br />
       </div>
 
       { searchResults.length === 0 

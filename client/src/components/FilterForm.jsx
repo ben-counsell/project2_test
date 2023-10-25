@@ -76,101 +76,99 @@ const FilterForm = ({getFilters}) => {
 
                     <div className="filter-option-form">
                         <div className="filter-select">
-                            <h3>Cuisine:</h3><br/>
-                            <label htmlFor="italian">Italian</label>
+                            <h3>Cuisine:</h3>
                             <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="french">French</label>
+                            <label htmlFor="italian">Italian</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="french" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="spanish">Spanish</label>
+                            <label htmlFor="french">French</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="spanish" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="greek">Greek</label>
+                            <label htmlFor="spanish">Spanish</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="greek" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="african">African</label>
+                            <label htmlFor="greek">Greek</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="african" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="chinese">Chinese</label>
+                            <label htmlFor="african">African</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="thai">Thai</label>
+                            <label htmlFor="chinese">Chinese</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="vietnamese">Vietnamese</label>
+                            <label htmlFor="thai">Thai</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="vietnamese" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="korean">Korean</label>
+                            <label htmlFor="vietnamese">Vietnamese</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="korean" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="japanese">Japanese</label>
+                            <label htmlFor="korean">Korean</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="japanese" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="indian">Indian</label>
+                            <label htmlFor="japanese">Japanese</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="indian" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="latin%20american">Latin American</label>
+                            <label htmlFor="indian">Indian</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="latin%20american" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="mexican">Mexican</label>
+                            <label htmlFor="latin%20american">Latin American</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="mexican" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="caribbean">Caribbean</label>
+                            <label htmlFor="mexican">Mexican</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="caribbean" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="cajun">Cajun</label>
+                            <label htmlFor="caribbean">Caribbean</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="cajun" onChange={handleCuisinesChange}/>
-                            <br/>
-                            <label htmlFor="american">American</label>
+                            <label htmlFor="cajun">Cajun</label><br/>
+                            
                             <input type="checkbox" name="cuisine" value="american" onChange={handleCuisinesChange}/>
+                            <label htmlFor="american">American</label><br/>
                         </div>
-
                         <div className="filter-select">
                             <h3>Meal type:</h3>
-                            <label htmlFor="main%20course">Main Course</label>
-                            <input type="checkbox" name="type" value="main%20course" onChange={handleTypesChange}/><br/>
-
-                            <label htmlFor="appetizer">Appetiser</label>
-                            <input type="checkbox" name="type" value="appetizer" onChange={handleTypesChange}/><br/>
-
-                            <label htmlFor="dessert">Dessert</label>
-                            <input type="checkbox" name="type" value="dessert" onChange={handleTypesChange}/><br/>
+                            <input type="checkbox" name="type" value="main%20course" onChange={handleTypesChange}/>
+                            <label htmlFor="main%20course">Main Course</label><br/>
                             
-                            <label htmlFor="side%20dish">Side Dish</label>
-                            <input type="checkbox" name="type" value="side%20dish" onChange={handleTypesChange}/><br/>
-
-                            <label htmlFor="breakfast">Breakfast</label>
-                            <input type="checkbox" name="type" value="breakfast" onChange={handleTypesChange}/><br/>
+                            <input type="checkbox" name="type" value="appetizer" onChange={handleTypesChange}/>
+                            <label htmlFor="appetizer">Appetiser</label><br/>
+                            
+                            <input type="checkbox" name="type" value="dessert" onChange={handleTypesChange}/>
+                            <label htmlFor="dessert">Dessert</label><br/>
+                            
+                            <input type="checkbox" name="type" value="side%20dish" onChange={handleTypesChange}/>
+                            <label htmlFor="side%20dish">Side Dish</label><br/>
+                            
+                            <input type="checkbox" name="type" value="breakfast" onChange={handleTypesChange}/>
+                            <label htmlFor="breakfast">Breakfast</label><br/>
                         </div>
-
                         <div className="filter-select">
                             <h3>Key Ingredients:</h3>
-                            <label htmlFor="chicken">Chicken</label>
-                            <input type="checkbox" name="type" value="chicken" onChange={handleKeyIngredientsChange}/><br/>
+                            <input type="checkbox" name="type" value="chicken" onChange={handleKeyIngredientsChange}/>
+                            <label htmlFor="chicken">Chicken</label><br/>
+                            
+                            <input type="checkbox" name="type" value="beef" onChange={handleKeyIngredientsChange}/>
+                            <label htmlFor="beef">Beef</label><br/>
+                            
+                            <input type="checkbox" name="type" value="pork" onChange={handleKeyIngredientsChange}/>
+                            <label htmlFor="pork">Pork</label><br/>
+                            
+                            <input type="checkbox" name="type" value="chicken" onChange={handleKeyIngredientsChange}/>
+                            <label htmlFor="lamb">Lamb</label><br/>
+                            
+                            <input type="checkbox" name="type" value="tofu" onChange={handleKeyIngredientsChange}/>
+                            <label htmlFor="tofu">Tofu</label><br/>
+                            
+                            <input type="checkbox" name="type" value="aubergine,eggplant" onChange={handleKeyIngredientsChange}/>
+                            <label htmlFor="aubergine,eggplant">Aubergine</label><br/>
 
-                            <label htmlFor="beef">Beef</label>
-                            <input type="checkbox" name="type" value="beef" onChange={handleKeyIngredientsChange}/><br/>
-
-                            <label htmlFor="pork">Pork</label>
-                            <input type="checkbox" name="type" value="pork" onChange={handleKeyIngredientsChange}/><br/>
-
-                            <label htmlFor="lamb">Lamb</label>
-                            <input type="checkbox" name="type" value="chicken" onChange={handleKeyIngredientsChange}/><br/>
-
-                            <label htmlFor="tofu">Tofu</label>
-                            <input type="checkbox" name="type" value="tofu" onChange={handleKeyIngredientsChange}/><br/>
-
-                            <label htmlFor="aubergine,eggplant">Aubergine</label>
-                            <input type="checkbox" name="type" value="aubergine,eggplant" onChange={handleKeyIngredientsChange}/><br/>
-
+                            <input type="checkbox" name="type" value="halloumi" onChange={handleKeyIngredientsChange}/> 
                             <label htmlFor="halloumi">Halloumi</label>
-                            <input type="checkbox" name="type" value="halloumi" onChange={handleKeyIngredientsChange}/><br/>
+                            
                         </div>
                     </div>
-
                     <input className="filter-submit-button" type="submit" value="Set Filters"/>
-
+                    <br />
                 </form>
             </div>
         </div>

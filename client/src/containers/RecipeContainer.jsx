@@ -19,13 +19,13 @@ function RecipeContainer({carouselRecipes, filteredResults, favouritesToggle}) {
 
     return (
         <>
-        <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Home carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>}/>
-            <Route path="/recipe/:id" element={<Recipe/>}/>
-            <Route path="/favourites" element={<Favourites/>}/>
-        </Routes>
-        </BrowserRouter>
+            <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>}/>
+                <Route path="/recipe/:id" element={<Recipe/>}/>
+                <Route path="/favourites" element={<Favourites/>}/>
+            </Routes>
+            </BrowserRouter>
         </>
     )
 }
