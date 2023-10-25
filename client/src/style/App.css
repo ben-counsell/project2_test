@@ -134,3 +134,8 @@ a:link{
   color: white;
   letter-spacing: 1px;
 }
+
+img {
+  border-radius: 2rem;
+  width: 250px;
+}

@@ -9,6 +9,13 @@ import SearchResults from './components/SearchResults'
 
 function App() {
   
+  const [customer, setCustomer] = useState({
+    name: "Lennie Harman",
+    dietary_preference: "",
+    intolerances: "",
+    favourites: []
+  })
+
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
@@ -17,7 +24,7 @@ function App() {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {
-      return getRecipesForCarousel(request)
+      return getRecipesForCarousel(request, customer.dietary_preference, customer.intolerances)
     })
     Promise.all(newCarouselRecipes)
       .then(recipeArray => {
@@ -32,7 +39,7 @@ function App() {
   }, [])
   
   const getFilters = (newFilters) => {
-    getFilteredRecipes(newFilters)
+    getFilteredRecipes(newFilters, customer.dietary_preference, customer.intolerances)
     .then((recipes) => {
       setFilteredResults(recipes.results)
     })
@@ -63,4 +70,3 @@ function App() {
 }
 
 export default App
-
