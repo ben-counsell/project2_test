@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getFilteredRecipes, getVeggie, getVegan, getRecipes, getThai } from './services/RecipeServices'
+import { getFilteredRecipes, getRecipesForCarousel } from './services/RecipeServices'
 import RecipeContainer from './containers/RecipeContainer'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
@@ -8,45 +8,37 @@ import SearchResults from './components/SearchResults'
 
 function App() {
   
-  const [recipes, setRecipes] = useState([])
-  const [thaiRecipes, setThaiRecipes] = useState([])
-  const [veggieRecipes, setVeggieRecipes] = useState([])
-  const [veganRecipes, setVeganRecipes] = useState([])
-  const [filteredResults, setFilteredResults] = useState([])
+  const [customer, setCustomer] = useState({
+    name: "Lennie Harman",
+    dietary_preference: "",
+    intolerances: "",
+    favourites: []
+  })
 
+  const [carouselRecipes, setCarouselRecipes] = useState({})
+  const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
 
+  useEffect(() => {
+    let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
-  useEffect(() => {
-    getRecipes()
-    .then((recipes) => {
-      setRecipes(recipes.results)
+    const newCarouselRecipes = carouselRequests.map((request) => {
+      return getRecipesForCarousel(request, customer.dietary_preference, customer.intolerances)
     })
-  }, [])
-
-  useEffect(() => {
-    getThai()
-    .then((recipes) => {
-      setThaiRecipes(recipes.results)
-    })
-  }, [])
-
-  useEffect(() => {
-    getVeggie()
-    .then((recipes) => {
-      setVeggieRecipes(recipes.results)
-    })
-  }, [])
-  
-  useEffect(() => {
-    getVegan()
-    .then((recipes) => {
-      setVeganRecipes(recipes.results)
-    })
+    Promise.all(newCarouselRecipes)
+      .then(recipeArray => {
+        const carouselRecipesObject = {
+          random : recipeArray[0].results,
+          vegetarian : recipeArray[1].results,
+          vegan : recipeArray[2].results,
+          thai : recipeArray[3].results
+        }
+        setCarouselRecipes(carouselRecipesObject)
+      })
   }, [])
   
   const getFilters = (newFilters) => {
-    getFilteredRecipes(newFilters)
+    getFilteredRecipes(newFilters, customer.dietary_preference, customer.intolerances)
     .then((recipes) => {
       setFilteredResults(recipes.results)
     })
@@ -66,13 +58,13 @@ function App() {
         <Header setSearchResults={setSearchResults} />
         <FilterForm getFilters={getFilters}/>
       </div>
+
       { searchResults.length === 0 
-      ?<RecipeContainer recipes={recipes} thaiRecipes={thaiRecipes} veggieRecipes={veggieRecipes} veganRecipes={veganRecipes} filteredResults={filteredResults}/>
-      :<SearchResults/>
+      ?<RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>
+      :<SearchResults recipes={searchResults} />
       }
     </>
   )
 }
 
 export default App
-

@@ -1,0 +1,47 @@
+.detail {margin-top: 10rem;
+    margin-bottom: 5rem;
+    display: flex;
+    .active { border: 4rem;}
+    }
+    
+    li {font-size: 1.2rem;
+    line-height: 2.5rem;}
+    
+    ul {margin-top: 2rem;}
+    
+    
+    
+    .recipe-button {padding: 1rem 2rem;
+      border: 4px solid black;
+      border-radius: 1rem;
+      margin-left: 3rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      width: 180px;
+    }
+    
+    .active {padding: 1rem 2rem;
+      border: 10px solid black;
+      border-radius: 1rem;
+      margin-left: 3rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      width: 180px;
+      }
+      
+    
+    .left-column {margin-left: 10rem;
+    
+    }
+    
+    svg.heart {margin-left: 2rem;
+    margin-top: 1.2rem;
+    }
+
+    .heart-full{color: red;}
+    
+    .right-column {margin: 1rem;}
+    
+    
+    

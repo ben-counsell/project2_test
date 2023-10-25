@@ -6,7 +6,7 @@ const SearchBar = ({ setSearchResults }) => {
     const [searchTerm, setSearchTerm] = useState("")
     
     const fetchData = (value) => {
-        fetch(`${baseURL}/complexSearch?query=${searchTerm}`, {headers:apiKey})
+        fetch(`${baseURL}/complexSearch?query=${searchTerm}&number=100`, {headers:apiKey})
         .then(response => response.json())
         .then(data => data.results)
         .then(results => setSearchResults(results))
@@ -23,10 +23,10 @@ const SearchBar = ({ setSearchResults }) => {
 
     return (
         <div className="search-bar">
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Search all recipes..." value={searchTerm} onChange={e => handleChange(e.target.value)}/>
-            <button type="submit"><i className="fa fa-search"></i></button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Search all recipes..." value={searchTerm} onChange={e => handleChange(e.target.value)}/>
+                <button type="submit"><i className="fa fa-search"></i></button>
+            </form>
         </div>
     )
 

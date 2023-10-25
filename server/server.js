@@ -5,8 +5,8 @@ const cors = require("cors");
 const createRouter = require("./helpers/create_router");
 
 
-
 app.use(cors());
+
 app.use(express.json());
 MongoClient.connect("mongodb://127.0.0.1:27017")
 .then((client) => {
@@ -21,3 +21,6 @@ MongoClient.connect("mongodb://127.0.0.1:27017")
 app.listen(9000, function () {
     console.log(`Listening on port ${ this.address().port }`);
 });
+=======
+app.use(express.json());
+

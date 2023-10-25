@@ -1,12 +1,11 @@
+import Home from "../components/Home"
+import Recipe from "../components/Recipe"
+import Favourites from "../components/Favourites"
+import {Route, Routes, BrowserRouter} from "react-router-dom"
 import FavouriteRecipes from "../components/FavouriteRecipes"
-import RecipeCard from "../components/RecipeCard"
-import FilteredResults from "../components/FilteredResults"
-import Thai from "../components/Thai"
-import Veggie from "../components/Veggie"
-import Vegan from "../components/Vegan"
 import { useState } from "react"
 
-function RecipeContainer({recipes, thaiRecipes, veggieRecipes, veganRecipes, filteredResults, favouritesToggle}) {
+function RecipeContainer({carouselRecipes, filteredResults, favouritesToggle}) {
 
     // don't think the below code is finished so i commented it out to make sure nothing breaks
     // - ben
@@ -20,14 +19,13 @@ function RecipeContainer({recipes, thaiRecipes, veggieRecipes, veganRecipes, fil
 
     return (
         <>
-            <div className="recipe-container">
-                {filteredResults.length > 0 ? <FilteredResults recipes={filteredResults}/> : null}
-                <RecipeCard recipes={recipes}/>
-                <Vegan veganRecipes={veganRecipes}/>
-                <Veggie veggieRecipes={veggieRecipes}/>
-                <Thai thaiRecipes={thaiRecipes}/>
-            </div>
-            {/* <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} /> */}
+        <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>}/>
+            <Route path="/recipe/:id" element={<Recipe/>}/>
+            <Route path="/favourites" element={<Favourites/>}/>
+        </Routes>
+        </BrowserRouter>
         </>
     )
 }
