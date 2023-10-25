@@ -7,7 +7,7 @@ import { RxCross2 } from 'react-icons/rx'
 
 import "../style/Recipe.css"
 
-const Recipe = ({customerFavourites}) => {
+const Recipe = ({ customerFavourites, newFavourite }) => {
 
     let params = useParams()
     const [recipeDetails, setRecipeDetails] = useState()
@@ -23,6 +23,9 @@ const Recipe = ({customerFavourites}) => {
     }
 
     const handleClick = () => {
+        if (!isFavourite) {
+            newFavourite(customer._id, params.id)
+        }
         setIsFavourite(isFavourite ? false : true);
     };
 
