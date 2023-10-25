@@ -18,8 +18,6 @@ export const getFilteredRecipes = (filters, dietary_requirements, intolerances) 
     dietary_requirements ? apiCall += `&diet=${dietary_requirements}` : null
     intolerances ? apiCall += `&intolerances=${intolerances}` : null
 
-    console.log(apiCall)
-
     return fetch(`${baseURL}/complexSearch?${apiCall}&sort=random&number=255`, {
         headers:apiKey
     })
