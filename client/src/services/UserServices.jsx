@@ -1,7 +1,7 @@
-const baseUrl = "http://localhost:9000/api/users/"
+const baseUrl = "http://localhost:9000/api/users"
 
-export const getUser = (id) => {
-    return fetch(`${baseUrl}/${id}`)
+export const getUser = (userId) => {
+    return fetch(`${baseUrl}/${userId}`)
     .then(res => res.json())
 }
 

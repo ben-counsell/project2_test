@@ -56,7 +56,7 @@ const createRouter = function (collection) {
 
     router.put('/diet/:userId/:diet', (req, res) => {
       const userToUpdate = { _id: new ObjectID(req.params.userId) }
-      const newDiet = { $push: {dietary_preferences:diet} }
+      const newDiet = { $push: {dietary_preference:req.params.diet} }
       collection
       .updateOne(userToUpdate, newDiet)
       .then(res.json({status:200}))
@@ -69,7 +69,7 @@ const createRouter = function (collection) {
 
     router.put('/intolerance/:userId/:intolerance', (req, res) => {
       const userToUpdate = { _id: new ObjectID(req.params.userId) }
-      const newIntolerance = { $push: {intolerances:intolerance} }
+      const newIntolerance = { $push: {intolerances:req.params.intolerance} }
       collection
       .updateOne(userToUpdate, newIntolerance)
       .then(res.json({status:200}))

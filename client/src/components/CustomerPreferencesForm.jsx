@@ -43,7 +43,8 @@ const CustomerPrefererencesForm = ({ user, setCustomerPreferences }) => {
     const onSubmit = (evt) => {
         evt.preventDefault()
         setAccordionExpanded(!accordionExpanded)
-        setCustomerPreferences(dietaryPreferences, intolerances)
+        console.log(setCustomerPreferences)
+        setCustomerPreferences(user._id, dietaryPreferences, intolerances)
     }
 
     return (
@@ -78,40 +79,40 @@ const CustomerPrefererencesForm = ({ user, setCustomerPreferences }) => {
                         </div>
                         <div className="filter-select">
                             <h3>Intolerances:</h3>
-                            <input type="checkbox" name="intolerance" value="dairy" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="dairy" onChange={handleIntoleranceChange} checked={intolerances.includes('dairy')}/>
                             <label htmlFor="dairy">Dairy</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="egg" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="egg" onChange={handleIntoleranceChange} checked={intolerances.includes('egg') ? true : false}/> 
                             <label htmlFor="egg">Egg</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="gluten" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="gluten" onChange={handleIntoleranceChange} checked={intolerances.includes('gluten') ? true : false}/>
                             <label htmlFor="gluten">Gluten</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="grain" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="grain" onChange={handleIntoleranceChange} checked={intolerances.includes('grain') ? true : false}/>
                             <label htmlFor="grain">Grain</label><br/>
                             
-                            <input type="checkbox" name="intolerance" value="peanut" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="peanut" onChange={handleIntoleranceChange} checked={intolerances.includes('peanut') ? true : false}/>
                             <label htmlFor="peanut">Peanut</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="seafood" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="seafood" onChange={handleIntoleranceChange} checked={intolerances.includes('seafood') ? true : false}/>
                             <label htmlFor="seafood">Seafood</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="sesame" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="sesame" onChange={handleIntoleranceChange} checked={intolerances.includes('sesame') ? true : false}/>
                             <label htmlFor="sesame">Sesame</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="shellfish" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="shellfish" onChange={handleIntoleranceChange} checked={intolerances.includes('shellfish') ? true : false}/>
                             <label htmlFor="shellfish">Shellfish</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="soy" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="soy" onChange={handleIntoleranceChange} checked={intolerances.includes('soy') ? true : false}/>
                             <label htmlFor="soy">Soy</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="sulfite" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="sulfite" onChange={handleIntoleranceChange} checked={intolerances.includes('sulfite') ? true : false}/>
                             <label htmlFor="sulfite">Sulfite</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="tree%20nut" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="tree%20nut" onChange={handleIntoleranceChange} checked={intolerances.includes('tree nut') ? true : false}/>
                             <label htmlFor="tree%20nut">Tree nut</label><br/>
 
-                            <input type="checkbox" name="intolerance" value="wheat" onChange={handleIntoleranceChange}/>
+                            <input type="checkbox" name="intolerance" value="wheat" onChange={handleIntoleranceChange} checked={intolerances.includes('wheat') ? true : false}/>
                             <label htmlFor="wheat">Wheat</label><br/>
                         </div>
                     </div>

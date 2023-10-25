@@ -11,8 +11,8 @@ import './style/RecipeLists.css'
 import './style/Search.css'
 
 function App() {
-  
-  const loggedInUserId = '65393cd50dd4d71c3fa7b056'
+    
+  const loggedInUserId = '65393cd50dd4d71c3fa7b054'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
@@ -25,6 +25,7 @@ function App() {
   }, [])
 
   useEffect(() => {
+    console.log(user.intolerances)
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {
@@ -61,10 +62,14 @@ function App() {
     .then((user) => setUser(user))  
   }
 
-  const setCustomerPreferences = (newDietaryPreferences, newIntolerances) => {
-    newDietaryPreferences.forEach(diet => addDiet(user._id, diet))
-    newIntolerances.forEach(intolerance => addIntolerance(user._id, intolerance))
-    .then(getUser(userId))
+  const setCustomerPreferences = (userId, newDietaryPreferences, newIntolerances) => {
+    for (let diet of newDietaryPreferences) {
+      addDiet(userId, diet)
+    }
+    for (let intolerance of newIntolerances) {
+      addIntolerance(userId, intolerance)
+    }
+    getUser(userId)
     .then((user) => setUser(user))
   }
   
@@ -72,7 +77,7 @@ function App() {
     <>
       <div className="container">
         <Header setSearchResults={setSearchResults} />
-        <CustomerPrefererencesForm user={user} setCustomerPreference={setCustomerPreferences}/>        
+        <CustomerPrefererencesForm user={user} setCustomerPreferences={setCustomerPreferences}/>        
         <FilterForm getFilters={getFilters}/>
       </div>
 
