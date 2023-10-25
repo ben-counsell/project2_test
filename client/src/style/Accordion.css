@@ -1,0 +1,63 @@
+.accordion {
+    list-style: none;
+    margin: 0px;
+    /* width: 80%;
+    display: flex;
+    justify-content: center; */
+}
+
+.button {
+    background-color: #FCFEFA;
+    color: #074323;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+.accordion-wrapper {
+    height: 0;
+    overflow: hidden;
+    transition: ease 0.4s;
+}
+
+.accordion-form {
+    background-color: #EBF8DF;
+    padding: 20px;
+}
+
+.accordion .button {
+    background-color: #03917C
+
+}
+.accordion-open .button {
+    background-color: #03917C;
+}
+
+.filter-option-form {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 100px;
+    margin: none;
+    font-size: 20px;
+}
+
+.filter-submit-button {
+    display: flex;
+    /* justify-content: baseline; */
+    background-color: #FCCA85;
+    height: fit-content;
+    font-size: medium;
+    border-radius: 0.5rem;
+    padding: 10px;
+}
+
+.filter-select {
+    width: 200px
+}

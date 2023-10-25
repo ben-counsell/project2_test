@@ -1,48 +1,25 @@
 import apiKey from "./apiKey"
 const baseURL = 'https://api.spoonacular.com/recipes'
 
-export const getRecipes = () => {
-    return fetch(`${baseURL}/complexSearch?sort=random&number=50`, {
+export const getRecipesForCarousel = (query, dietary_requirements, intolerances) => {
+    let apiCall = ''
+    query != '' ? apiCall = 'query=' + query : null
+    dietary_requirements ? apiCall += `&diet=${dietary_requirements}` : null
+    intolerances ? apiCall += `&intolerances=${intolerances}` : null
+
+    return fetch(`${baseURL}/complexSearch?${apiCall}&sort=random`, {
         headers:apiKey
     })
         .then(res => res.json())
 }
 
-export const getThai = () => {
+export const getFilteredRecipes = (filters, dietary_requirements, intolerances) => {
+    let apiCall = Object.values(filters).join('&')
+    dietary_requirements ? apiCall += `&diet=${dietary_requirements}` : null
+    intolerances ? apiCall += `&intolerances=${intolerances}` : null
 
-    return fetch(`${baseURL}/complexSearch?query=Thai&sort=random&number=50`, {
-      headers:apiKey
-    })
-        .then(res => res.json())
-}
-
-
-export const getVeggie = () => {
-    return fetch(`${baseURL}/complexSearch?diet=Vegetarian&sort=random&number=50`, {
+    return fetch(`${baseURL}/complexSearch?${apiCall}&sort=random&number=255`, {
         headers:apiKey
     })
         .then(res => res.json())
 }
-
-export const getVegan = () => {
-    return fetch(`${baseURL}/complexSearch?diet=Vegan&sort=random&number=50`, {
-        headers:apiKey
-    })
-        .then(res => res.json())
-}
-
-
-
-export const getFilteredRecipes = (filters) => {
-    const apiCallArray = []
-    const filterValues = Object.values(filters)
-    filterValues.forEach((value) => apiCallArray.push(value))
-    
-    const apiCall = apiCallArray.join('&')
-
-    return fetch(`${baseURL}/complexSearch?${apiCall}&number=50`, {
-        headers:apiKey
-    })
-        .then(res => res.json())
-}
-

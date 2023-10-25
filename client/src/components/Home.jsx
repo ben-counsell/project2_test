@@ -1,18 +1,30 @@
-import Thai from "./Thai"
-import Veggie from "./Veggie"
-import Vegan from "./Vegan"
-import RecipeCard from "./RecipeCard"
-import FilteredResults from "./FilteredResults"
+import Carousel from "../components/Carousel"
 
 
-const Home = ({recipes, thaiRecipes, veggieRecipes, veganRecipes, filteredResults}) => {
+const Home = ({carouselRecipes, filteredResults}) => {
+
+    const displayFilteredResults = () => {
+        if (filteredResults.length > 0) {
+            return <Carousel recipes={filteredResults} title={`${filteredResults.length} results`}/>
+        } else if (filteredResults.noFilters) {
+            return null
+        } else {
+            return <p>Your search returned no results</p>
+        }
+    }
+
+    const filterResults = displayFilteredResults(filteredResults)
+
     return ( 
         <>
-        {filteredResults.length > 0 ? <FilteredResults recipes={filteredResults}/> : null}
-        <RecipeCard recipes={recipes}/>
-        <Vegan veganRecipes={veganRecipes}/>
-        <Veggie veggieRecipes={veggieRecipes}/>
-        <Thai thaiRecipes={thaiRecipes}/>
+        <div className="recipe-container">
+                {filterResults}
+                {carouselRecipes.random ? <Carousel recipes={carouselRecipes.random} title='Random recipes'/> : null}
+                {carouselRecipes.vegan ? <Carousel recipes={carouselRecipes.vegan} title='Vegan options'/> : null}
+                {carouselRecipes.vegetarian ? <Carousel recipes={carouselRecipes.vegetarian} title='Veggie choices'/> : null}
+                {carouselRecipes.thai ? <Carousel recipes={carouselRecipes.thai} title='Thai options'/> : null}
+        </div>
+        {/* <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} /> */}
         </>
      );
 }

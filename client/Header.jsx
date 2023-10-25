@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 
-const Header = ({ setSearchResults }) => {
+const Header = () => {
 
     return (
         <>
@@ -18,7 +18,7 @@ const Header = ({ setSearchResults }) => {
                 </ul>
             </nav>
         </header>
-        < SearchBar setSearchResults={setSearchResults} />
+        < SearchBar />
         </>
     )
 }
