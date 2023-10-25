@@ -46,37 +46,6 @@ a:link{
   font-size: 25px;
 }
 
-.search-bar {
-  display: flex;
-  justify-content: center;
-  height: 50px;
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-.search-bar input {
-  height: 100%;
-  font-size: 28px; 
-  border: 1px solid grey;
-  float: left;
-  border-radius: 1rem;
-  color: rgb(7, 67, 35);
-}
-
-.search-bar button {
-  height: 100%;
-  font-size: 25px;
-  margin-left: 10px;
-  background-color: rgb(7, 67, 35);;
-  width: 50px;
-  color: white;
-  border-radius: 1rem;
-}
-
-.search-bar button:hover {
-  background-color: #EBF8DF; 
-  color: #03917C; 
-}
 
 /* filter form */
 
@@ -84,7 +53,7 @@ a:link{
 
 /* recipe container  */
 
-.carousel-title {
+/* .carousel-title {
   margin: 0px;
   padding: 20px;
   background-color: rgb(7, 67, 35);
@@ -99,7 +68,7 @@ a:link{
 img {
 
   
-}
+} */
 
 
 
