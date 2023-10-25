@@ -28,7 +28,7 @@ const createRouter = function (collection) {
         });
     })
 
-    router.put('/:userId/:recipeId', (req, res) => {
+    router.put('/favourite/:userId/:recipeId', (req, res) => {
       const userToUpdate = { _id: new ObjectID(req.params.userId) }
       const newFavourite = { $push: {favourites:req.params.recipeId}}
       collection
@@ -41,7 +41,7 @@ const createRouter = function (collection) {
         })
     })
 
-    router.delete('/:userId/:recipeId', (req, res) => {
+    router.delete('/favourite/:userId/:recipeId', (req, res) => {
       const userToUpdate = { _id: new ObjectID(req.params.userId)}
       const favouriteToDelete = { $pull: {favourites:req.params.recipeId}}
       collection
@@ -53,6 +53,48 @@ const createRouter = function (collection) {
         res.json({ status: 500, error: err })
       })
     })
+
+    router.put('/diet/:userId/:diet', (req, res) => {
+      const userToUpdate = { _id: new ObjectID(req.params.userId) }
+      const newDiet = { $push: {dietary_preferences:diet} }
+      collection
+      .updateOne(userToUpdate, newDiet)
+      .then(res.json({status:200}))
+      .catch((err) => {
+        console.error(err)
+        res.status(500)
+        res.json({ status: 500, error: err })
+      })
+    })
+
+    router.put('/intolerance/:userId/:intolerance', (req, res) => {
+      const userToUpdate = { _id: new ObjectID(req.params.userId) }
+      const newIntolerance = { $push: {intolerances:intolerance} }
+      collection
+      .updateOne(userToUpdate, newIntolerance)
+      .then(res.json({status:200}))
+      .catch((err) => {
+        console.error(err)
+        res.status(500)
+        res.json({ status: 500, error: err })
+      })
+    })
+
+    // router.put('/:userId/:diet', (req, res) => {
+    //   const userToUpdate = { _id: new ObjectID(req.params.userId) }
+    //   const newPreferences = { $set: 
+    //     {dietary_preferences:req.params.diet, 
+    //     intolerances:req.params.intolerances}
+    //   }
+    //   collection
+    //   .updateOne(userToUpdate, newPreferences)
+    //   .then(res.json({status:200}))
+    //   .catch((err) => {
+    //     console.error(err)
+    //     res.status(500)
+    //     res.json({ status: 500, error: err })
+    //   })
+    // })
 
     return router
 }

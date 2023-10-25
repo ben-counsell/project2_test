@@ -5,21 +5,20 @@ import CustomerPrefererencesForm from './components/CustomerPreferencesForm'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import SearchResults from './components/SearchResults'
-import { getUser, saveFavourite, deleteFavourite } from './services/UserServices'
+import { getUser, saveFavourite, deleteFavourite, addDiet, addIntolerance } from './services/UserServices'
 import './style/App.css'
 import './style/RecipeLists.css'
 import './style/Search.css'
 
 function App() {
   
-  const loggedInUserId = '6538f63a7dec7c6a518882b9'
+  const loggedInUserId = '65393cd50dd4d71c3fa7b056'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
   const [user, setUser] = useState({favourites:''})
 
-    
   useEffect(() => {
     getUser(loggedInUserId)
     .then((user) => setUser(user))
@@ -41,7 +40,7 @@ function App() {
         }
         setCarouselRecipes(carouselRecipesObject)
       })
-  }, [])
+  }, [user])
 
   const getFilters = (newFilters) => {
     getFilteredRecipes(newFilters, user.dietary_preference, user.intolerances)
@@ -62,10 +61,11 @@ function App() {
     .then((user) => setUser(user))  
   }
 
-  const setCustomerPreferences = (userId, newPreferences) => {
-    // updateCustomerPreferences(userId, newPreferences)
-    // .then(getUser(userId))
-    // .then((user) => setUser(user))
+  const setCustomerPreferences = (newDietaryPreferences, newIntolerances) => {
+    newDietaryPreferences.forEach(diet => addDiet(user._id, diet))
+    newIntolerances.forEach(intolerance => addIntolerance(user._id, intolerance))
+    .then(getUser(userId))
+    .then((user) => setUser(user))
   }
   
   return (  
@@ -74,7 +74,6 @@ function App() {
         <Header setSearchResults={setSearchResults} />
         <CustomerPrefererencesForm user={user} setCustomerPreference={setCustomerPreferences}/>        
         <FilterForm getFilters={getFilters}/>
-        <br/>
       </div>
 
       { searchResults.length === 0 

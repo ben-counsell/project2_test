@@ -1,11 +1,18 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import '../style/Accordion.css'
 
-const CustomerPrefererencesForm = ({user, setCustomerPreferences}) => {
+const CustomerPrefererencesForm = ({ user, setCustomerPreferences }) => {
 
     const [accordionExpanded, setAccordionExpanded] = useState(false)
-    const [dietaryPreferences, setDietaryPreferences] = useState(user.dietary_preference)
-    const [intolerances, setIntolerances] = useState(user.intolerances)
+    const [dietaryPreferences, setDietaryPreferences] = useState([])
+    const [intolerances, setIntolerances] = useState([])
+
+    useEffect(() => {
+        if (user.dietary_preferences) {
+        setDietaryPreferences(user.dietary_preferences)
+        setIntolerances(user.intolerances)
+        }
+    }, [user])
 
     const contentElement = useRef()
 
@@ -13,7 +20,7 @@ const CustomerPrefererencesForm = ({user, setCustomerPreferences}) => {
         let newDietaryPreferences
 
         if (evt.target.checked) {
-            setDietaryPreferences([...preferences, evt.target.value])
+            setDietaryPreferences([...dietaryPreferences, evt.target.value])
 
         } else {
             newDietaryPreferences = dietaryPreferences.filter((preference) => preference != evt.target.value)
@@ -36,7 +43,7 @@ const CustomerPrefererencesForm = ({user, setCustomerPreferences}) => {
     const onSubmit = (evt) => {
         evt.preventDefault()
         setAccordionExpanded(!accordionExpanded)
-        setCustomerPreferences()
+        setCustomerPreferences(dietaryPreferences, intolerances)
     }
 
     return (
