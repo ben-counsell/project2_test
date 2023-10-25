@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react'
 import { getFilteredRecipes, getRecipesForCarousel } from './services/RecipeServices'
 import RecipeContainer from './containers/RecipeContainer'
+import CustomerPrefererencesForm from './components/CustomerPreferencesForm'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
-import './style/App.css'
-import './style/RecipeLists.css'
 import SearchResults from './components/SearchResults'
 import { getUser, saveFavourite, deleteFavourite } from './services/UserServices'
+import './style/App.css'
+import './style/RecipeLists.css'
+
 
 function App() {
   
-  const loggedInUser = '6538f63a7dec7c6a518882b9'
+  const loggedInUserId = '6538f63a7dec7c6a518882b9'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
   const [user, setUser] = useState({favourites:''})
+
+    
+  useEffect(() => {
+    getUser(loggedInUserId)
+    .then((user) => setUser(user))
+  }, [])
 
   useEffect(() => {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
@@ -33,11 +41,6 @@ function App() {
         }
         setCarouselRecipes(carouselRecipesObject)
       })
-  }, [])
-  
-  useEffect(() => {
-    getUser(loggedInUser)
-    .then((user) => setUser(user))
   }, [])
 
   const getFilters = (newFilters) => {
@@ -58,11 +61,18 @@ function App() {
     .then(getUser(userId))
     .then((user) => setUser(user))  
   }
+
+  const setCustomerPreferences = (userId, newPreferences) => {
+    // updateCustomerPreferences(userId, newPreferences)
+    // .then(getUser(userId))
+    // .then((user) => setUser(user))
+  }
   
   return (  
     <>
       <div className="container">
         <Header setSearchResults={setSearchResults} />
+        <CustomerPrefererencesForm user={user} setCustomerPreference={setCustomerPreferences}/>        
         <FilterForm getFilters={getFilters}/>
         <br/>
       </div>
