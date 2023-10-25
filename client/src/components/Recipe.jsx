@@ -2,7 +2,7 @@ import apiKey from "../services/apiKey";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import "./Recipe.css"
-import { BsHeartFill, BsHeartbreak } from 'react-icons/bs'
+import { BsHeartFill, BsHeart } from 'react-icons/bs'
 
 const Recipe = () => {
 
@@ -20,22 +20,22 @@ const Recipe = () => {
         setRecipeDetails(recipeData)
     }
 
+    const handleClick = setIsFavourite
 
     useEffect(() => {
         fetchRecipe()
-
     }, [params.name])
 
     if (!recipeDetails) {
         return (
             <div>
-                <p>Awaiting recipe details</p>
+                <p>Awaiting recipe details...</p>
             </div>
         );
     }
 
-    const favouriteIcon = isFavourite ? <BsHeartbreak  size="70" className="heart" />
-                                      : <BsHeartFill  size="70" className="heart" />
+    const favouriteIcon = isFavourite ? <BsHeart onClick={handleClick} size="70" className="heart-empty" />
+        : <BsHeartFill onClick={handleClick} size="70" className="heart-full" />
 
 
     return (
@@ -45,13 +45,13 @@ const Recipe = () => {
             <div className="detail">
                 <div className="left-column"><h2>{recipeDetails.title}</h2>
                     {favouriteIcon}
-                    
+
                     <br /><img className="recipe-image" src={recipeDetails.image} alt={`Picture for ${recipeDetails.title}`} />
-                    
+
                 </div>
 
                 <div className="right-column">
-                    
+
                     <button onClick={() => setActiveButton('Summary')} className={activeButton === 'Summary' ? 'recipe-button' : 'active'}>Summary</button>
                     <button onClick={() => setActiveButton('Ingredients/Method')} className={activeButton === 'Ingredients/Method' ? 'recipe-button' : 'active'}>Ingredients/Method</button>
                     {activeButton === 'Summary' && (
@@ -59,16 +59,16 @@ const Recipe = () => {
                     )}
                     {activeButton === 'Ingredients/Method' && (
                         <>
-                        <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.instructions }}></h3>
-                        <ul>{recipeDetails.extendedIngredients.map((ingredient) => {
-                            return <li key={ingredient.id}>{ingredient.original}</li>
-                        })}</ul>
+                            <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.instructions }}></h3>
+                            <ul>{recipeDetails.extendedIngredients.map((ingredient) => {
+                                return <li key={ingredient.id}>{ingredient.original}</li>
+                            })}</ul>
                         </>
                     )}
-                    
-                    
-                    
-                    
+
+
+
+
                 </div>
             </div>
         </>

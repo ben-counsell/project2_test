@@ -16,6 +16,7 @@
       border-radius: 1rem;
       margin-left: 3rem;
       margin-top: 1rem;
+      margin-bottom: 2rem;
       font-weight: 500;
       width: 180px;
     }
@@ -24,6 +25,7 @@
       border: 10px solid black;
       border-radius: 1rem;
       margin-left: 3rem;
+      margin-bottom: 2rem;
       font-weight: 500;
       width: 180px;
       }
@@ -34,7 +36,10 @@
     }
     
     svg.heart {margin-left: 2rem;
-    margin-top: 1.2rem;}
+    margin-top: 1.2rem;
+    }
+
+    .heart-full{color: red;}
     
     .right-column {margin: 1rem;}
     
