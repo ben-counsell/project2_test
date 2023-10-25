@@ -2,7 +2,6 @@ use recipeAppUsers;
 
 db.dropDatabase();
 
-
 db.users.insertMany([
     {
         name: "Lennie Harman",

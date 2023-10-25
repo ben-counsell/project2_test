@@ -51,12 +51,8 @@
 .accordion-wrapper {
     height: 0;
     overflow: hidden;
-    transition: ease 0.2s;
+    transition: ease .8s;
     padding-bottom: 30px;
-}
-
-.accordion-wrapper-open {
-    transition: ease 0.4s;
 }
 
 .accordion-form {
