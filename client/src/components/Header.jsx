@@ -6,7 +6,7 @@ const Header = ({ setSearchResults }) => {
     return (
         <>
         <header>
-            <h1> Recipe Book </h1>
+            <h1> RecipeFlix </h1>
             <nav>
                 <ul>
                     <li>
