@@ -8,7 +8,14 @@ export const getUser = (id) => {
 export const saveFavourite = (userId, recipeId) => {
     return fetch(`${baseUrl}/${userId}/${recipeId}`, {
         method: 'PUT',
-        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(res => res.json())
+}
+
+export const deleteFavourite = (userId, recipeId) => {
+    return fetch(`${baseUrl}/${userId}/${recipeId}`, {
+        method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     })
     .then(res => res.json())

@@ -6,7 +6,7 @@ import Header from './components/Header'
 import './style/App.css'
 import './style/RecipeLists.css'
 import SearchResults from './components/SearchResults'
-import { getUser, saveFavourite } from './services/UserServices'
+import { getUser, saveFavourite, deleteFavourite } from './services/UserServices'
 
 function App() {
   
@@ -15,13 +15,13 @@ function App() {
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
-  const [customer, setCustomers] = useState({favourites:''})
+  const [user, setUser] = useState({favourites:''})
 
   useEffect(() => {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {
-      return getRecipesForCarousel(request, customer.dietary_preference, customer.intolerances)
+      return getRecipesForCarousel(request, user.dietary_preference, user.intolerances)
     })
     Promise.all(newCarouselRecipes)
       .then(recipeArray => {
@@ -37,11 +37,11 @@ function App() {
   
   useEffect(() => {
     getUser(loggedInUser)
-    .then((user) => setCustomers(user))
+    .then((user) => setUser(user))
   }, [])
 
   const getFilters = (newFilters) => {
-    getFilteredRecipes(newFilters, customer.dietary_preference, customer.intolerances)
+    getFilteredRecipes(newFilters, user.dietary_preference, user.intolerances)
     .then((recipes) => {
       setFilteredResults(recipes.results)
     })
@@ -49,8 +49,14 @@ function App() {
   
   const newFavourite = (userId, recipeId) => {
     saveFavourite(userId, recipeId)
-    .then(getUser(loggedInUser))
-    .then((user) => setCustomers(user))  
+    .then(getUser(userId))
+    .then((user) => setUser(user))  
+  }
+
+  const removeFavourite = (userId, recipeId) => {
+    deleteFavourite(userId, recipeId)
+    .then(getUser(userId))
+    .then((user) => setUser(user))  
   }
   
   return (  
@@ -58,11 +64,11 @@ function App() {
       <div className="container">
         <Header setSearchResults={setSearchResults} />
         <FilterForm getFilters={getFilters}/>
-        <br />
+        <br/>
       </div>
 
       { searchResults.length === 0 
-      ?<RecipeContainer carouselRecipes={carouselRecipes} filteredResults={filteredResults} customerFavourites={customer.favourites} newFavourite={newFavourite}/>
+      ?<RecipeContainer carouselRecipes={carouselRecipes} filteredResults={filteredResults} user={user} newFavourite={newFavourite} removeFavourite={removeFavourite}/>
       :<SearchResults recipes={searchResults} />
       }
     </>
