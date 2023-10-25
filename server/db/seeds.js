@@ -6,50 +6,58 @@ db.dropDatabase();
 db.users.insertMany([
     {
         name: "Lennie Harman",
-        dietary_preference: "none",
+        dietary_requirements: "none",
+        intolerances: "none",
         favourites: []
 
     },
 
     {
         name: "Gina Brand",
-        dietary_preference: "gluten%20free",
+        dietary_requirements: "gluten%20free",
+        intolerances: "none",
         favourites: []
     },
 
     {
         name: "Ruairidh Dunn",
-        dietary_preference: "vegan",
+        dietary_requirements: "vegan",
+        intolerances: "none",
         favourites: []
     },
 
     {
         name: "Elspeth MacIver",
-        dietary_preference: "none",
+        dietary_requirements: "none",
+        intolerances: "none",
         favourites: []
     },
 
     {
         name: "Evan Parry",
-        dietary_preference: "none",
+        dietary_requirements: "none",
+        intolerances: "none",
         favourites: []
     },
 
     {
         name: "Eleri Owens", 
-        dietary_preference: "gluten%20free",
+        dietary_requirements: "gluten%20free",
+        intolerances: "none",
         favourites: []
     },
 
     {
         name: "Connor O'Hannigan",
-        dietary_preference: "vegetarian",
+        dietary_requirements: "vegetarian",
+        intolerances: "none",
         favourites: []
     },
 
     {
         name: "Bridie O'Donnell",
-        dietary_preference: "dairy%20free",
+        dietary_requirements: "dairy%20free",
+        intolerances: "none",
         favourites: []
     },
 

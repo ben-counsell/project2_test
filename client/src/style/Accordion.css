@@ -23,12 +23,7 @@
 .accordion-wrapper {
     height: 0;
     overflow: hidden;
-    transition: ease 0.2s;
-}
-
-.accordion-wrapper-open {
-    transition: ease 0.3s;
-
+    transition: ease 0.4s;
 }
 
 .accordion-form {

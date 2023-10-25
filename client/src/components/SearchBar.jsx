@@ -6,7 +6,7 @@ const SearchBar = ({ setSearchResults }) => {
     const [searchTerm, setSearchTerm] = useState("")
     
     const fetchData = (value) => {
-        fetch(`${baseURL}/complexSearch?query=${searchTerm}`, {headers:apiKey})
+        fetch(`${baseURL}/complexSearch?query=${searchTerm}&number=100`, {headers:apiKey})
         .then(response => response.json())
         .then(data => data.results)
         .then(results => setSearchResults(results))
