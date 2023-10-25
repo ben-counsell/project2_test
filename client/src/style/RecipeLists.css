@@ -41,5 +41,6 @@ img:hover {
     margin-top:10px;
     height: 60px;
     text-align: center;
-    font-family: 'Playpen Sans', cursive;  /* not sure on font here */
+    font-family: 'Abel', sans-serif;
+    font-weight: 50;
 }
