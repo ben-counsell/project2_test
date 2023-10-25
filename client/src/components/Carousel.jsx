@@ -2,6 +2,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import { Link } from 'react-router-dom'
 
+
 const Carousel = ({ recipes, title }) => {
   const Carousel = recipes.map((recipe) => (
     <SplideSlide key={recipe.id}>

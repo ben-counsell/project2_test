@@ -10,7 +10,7 @@
     padding-bottom: 20px;
     background-color: rgb(7, 67, 35);
     color: white;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
 }
 
 .carousel {
@@ -35,12 +35,19 @@ img:hover {
 }
 
 .recipe-card h3 {
+    color: #03917C;
     font-size: 25px;
     padding-left: 20px;
     padding-right: 20px;
     margin-top:10px;
     height: 60px;
-    text-align: center;
+    /* text-align: center; */
     font-family: 'Abel', sans-serif;
     font-weight: 50;
+    text-decoration: none;
+    max-width: 300px;
+}
+
+.recipe-card h3:hover {
+    color:rgb(7, 67, 35)
 }

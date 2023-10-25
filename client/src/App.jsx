@@ -8,7 +8,7 @@ import SearchResults from './components/SearchResults'
 import { getUser, saveFavourite, deleteFavourite } from './services/UserServices'
 import './style/App.css'
 import './style/RecipeLists.css'
-
+import './style/Search.css'
 
 function App() {
   

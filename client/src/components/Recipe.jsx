@@ -45,23 +45,27 @@ const Recipe = ({ user, newFavourite, removeFavourite }) => {
         );
     }
 
-    const favouriteIcon = isFavourite ? <BsHeartFill onClick={handleClick} size="70" className="heart-full" />
-        : <BsHeart onClick={handleClick} size="70" className="heart-empty" />
 
+    const favouriteIcon = isFavourite ? <BsHeartFill onClick={handleClick} size="70" className="heart-full" />
+        : <BsHeart onClick={handleClick} size="50" className="heart-empty" />
 
     return (
         <>
-            <div className="detail">
+            <div className="detail"> 
                 <div className="left-column"><h2>{recipeDetails.title}</h2>
-                    <p>Cooking Time: {recipeDetails.readyInMinutes}</p>
+                    <p>Cooking Time: {recipeDetails.readyInMinutes} minutes</p>
                     {favouriteIcon}
-                    <br /><img className="recipe-image" src={recipeDetails.image} alt={`Picture for ${recipeDetails.title}`} />
+                    <img className="recipe-image" src={recipeDetails.image} alt={`Picture for ${recipeDetails.title}`}/>
+                    <p>Dairy Free {recipeDetails.dairyFree ? <TiTick/> : <RxCross2/>}</p>
+                    <p>Gluten Free {recipeDetails.glutenFree ? <TiTick/> : <RxCross2/>}</p>
+                    <p>Vegan {recipeDetails.vegan ? <TiTick/> : <RxCross2/>}</p>
+                    <p>Vegetarian {recipeDetails.vegetarian ? <TiTick/> : <RxCross2/>}</p>
                 </div>
                 <div className="right-column">
                     <button onClick={() => setActiveButton('Summary')} className={activeButton === 'Summary' ? 'recipe-button' : 'active'}>Summary</button>
                     <button onClick={() => setActiveButton('Ingredients/Method')} className={activeButton === 'Ingredients/Method' ? 'recipe-button' : 'active'}>Ingredients/Method</button>
                     {activeButton === 'Summary' && (
-                        <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></h3>
+                    <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></h3>
                     )}
                     {activeButton === 'Ingredients/Method' && (
                         <>
@@ -74,10 +78,7 @@ const Recipe = ({ user, newFavourite, removeFavourite }) => {
                 </div>
 
             </div>
-            <p>Dairy Free {recipeDetails.dairyFree ? <TiTick/> : <RxCross2/>}</p>
-            <p>Gluten Free {recipeDetails.glutenFree ? <TiTick/> : <RxCross2/>}</p>
-            <p>Vegan {recipeDetails.vegan ? <TiTick/> : <RxCross2/>}</p>
-            <p>Vegetarian {recipeDetails.vegetarian ? <TiTick/> : <RxCross2/>}</p>
+
 
         </>
     );
