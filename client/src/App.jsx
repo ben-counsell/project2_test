@@ -10,17 +10,10 @@ import { getUser } from './services/UserServices'
 
 function App() {
   
-  // const [customer, setCustomer] = useState({
-  //   name: "Lennie Harman",
-  //   dietary_preference: "",
-  //   intolerances: "",
-  //   favourites: []
-  // })
-
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
-  const [customer, setCustomers] = useState({})
+  const [customer, setCustomers] = useState({favourites:''})
 
   useEffect(() => {
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
@@ -41,7 +34,7 @@ function App() {
   }, [])
   
   useEffect(() => {
-    getUser("65364dea76bc6c89f5de108b")
+    getUser('6538f63a7dec7c6a518882b9')
     .then((user) => setCustomers(user))
 
   }, [])
@@ -69,7 +62,7 @@ function App() {
       </div>
 
       { searchResults.length === 0 
-      ?<RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} carouselRecipes={carouselRecipes} filteredResults={filteredResults}/>
+      ?<RecipeContainer favouritesToggle={handleFavouriteRecipeToggle} carouselRecipes={carouselRecipes} filteredResults={filteredResults} customerFavourites={customer.favourites}/>
       :<SearchResults recipes={searchResults} />
       }
     </>
