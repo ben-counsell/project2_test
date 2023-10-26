@@ -51,14 +51,18 @@ const CustomerPrefererencesForm = ({ user, setCustomerPreferences }) => {
     
     const generateDietFilters = dietFilters.map((diet) => {
         return  <>
-                    <input type="checkbox" name="diet" id={diet} value={diet} onChange={handleDietaryPreferenceChange} defaultChecked={user.dietary_preference.includes(diet)}/>
+                    <input type="checkbox" name="diet" id={diet} value={diet} onChange={handleDietaryPreferenceChange} 
+                    // defaultChecked={user.dietary_preference.includes(diet)}
+                    />
                     <label htmlFor={diet}>{diet[0].toUpperCase()+diet.slice(1)}</label><br/>
                 </>
     })
 
     const generateIntoleranceFilters = intoleranceFilters.map((intolerance) => {
         return  <>
-                    <input type="checkbox" name="intolerance" id={intolerance} value={intolerance} onChange={handleIntoleranceChange} defaultChecked={user.intolerances.includes(intolerance)}/>
+                    <input type="checkbox" name="intolerance" id={intolerance} value={intolerance} onChange={handleIntoleranceChange} 
+                    // defaultChecked={user.intolerances.includes(intolerance)}
+                    />
                     <label htmlFor={intolerance}>{intolerance[0].toUpperCase()+intolerance.slice(1)}</label><br/>
                 </>
     })
