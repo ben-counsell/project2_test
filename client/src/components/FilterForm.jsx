@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, createElement } from "react"
 import '../style/Accordion.css'
 
 const FilterForm = ({getFilters}) => {
@@ -59,6 +59,44 @@ const FilterForm = ({getFilters}) => {
         })
     }
 
+    const cuisineFilters = ['italian', 'french', 'spanish', 'greek', 'african', 'chinese', 'thai', 'vietnamese', 'korean', 'japanese', 'indian', 'mexican', 'caribbean', 'cajun', 'american']
+    const typeFilters = ['main course', 'appetizer', 'dessert', 'side dish', 'breakfast']
+    const ingredientFilters = ['chicken', 'beef', 'pork', 'lamb', 'tofu', 'eggplant', 'halloumi']
+    
+    // function generateFilters(options) {
+    //     return options.map((option) => {
+    //         return  <>
+    //                     <input type="checkbox" name='option' value={option} onChange={
+    //                         options==='cuisineFilters' ? {handleCuisinesChange} 
+    //                         : options==='typeFilters' ? {handleTypesChange}
+    //                         : options==='ingredientFilters' ? {handleKeyIngredientsChange} : null
+    //                         }/>
+    //                     <label htmlFor={option}>{option[0].toUpperCase()+option.slice(1)}</label><br/>
+    //                 </>
+    //     })
+    // }
+
+    const generateCuisineFilters = cuisineFilters.map((cuisine) => {
+        return  <>
+                    <input type="checkbox" name="cuisine" id={cuisine} value={cuisine} onChange={handleCuisinesChange}/>
+                    <label htmlFor={cuisine}>{cuisine[0].toUpperCase()+cuisine.slice(1)}</label><br/>
+                </>
+    })
+
+    const generateTypeFilters = typeFilters.map((type) => {
+        return  <>
+                    <input type="checkbox" name="type" id={type} value={type} onChange={handleTypesChange}/>
+                    <label htmlFor={type}>{type[0].toUpperCase()+type.slice(1)}</label><br/>
+                </>
+    })
+
+    const generateIngredientFilters = ingredientFilters.map((ingredient) => {
+        return  <>
+                    <input type="checkbox" name="ingredient" id={ingredient} value={ingredient} onChange={handleKeyIngredientsChange}/>
+                    <label htmlFor={ingredient}>{ingredient[0].toUpperCase()+ingredient.slice(1)}</label><br/>
+                </>
+    })
+
     return (
         <div className={`accordion${accordionExpanded ? '-open' : ''}`}>
 
@@ -77,94 +115,15 @@ const FilterForm = ({getFilters}) => {
                     <div className="filter-option-form">
                         <div className="filter-select">
                             <h3>Cuisine:</h3>
-                            <input type="checkbox" name="cuisine" value="italian" onChange={handleCuisinesChange}/>
-                            <label htmlFor="italian">Italian</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="french" onChange={handleCuisinesChange}/>
-                            <label htmlFor="french">French</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="spanish" onChange={handleCuisinesChange}/>
-                            <label htmlFor="spanish">Spanish</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="greek" onChange={handleCuisinesChange}/>
-                            <label htmlFor="greek">Greek</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="african" onChange={handleCuisinesChange}/>
-                            <label htmlFor="african">African</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="chinese" onChange={handleCuisinesChange}/>
-                            <label htmlFor="chinese">Chinese</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="thai" onChange={handleCuisinesChange}/>
-                            <label htmlFor="thai">Thai</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="vietnamese" onChange={handleCuisinesChange}/>
-                            <label htmlFor="vietnamese">Vietnamese</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="korean" onChange={handleCuisinesChange}/>
-                            <label htmlFor="korean">Korean</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="japanese" onChange={handleCuisinesChange}/>
-                            <label htmlFor="japanese">Japanese</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="indian" onChange={handleCuisinesChange}/>
-                            <label htmlFor="indian">Indian</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="latin%20american" onChange={handleCuisinesChange}/>
-                            <label htmlFor="latin%20american">Latin American</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="mexican" onChange={handleCuisinesChange}/>
-                            <label htmlFor="mexican">Mexican</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="caribbean" onChange={handleCuisinesChange}/>
-                            <label htmlFor="caribbean">Caribbean</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="cajun" onChange={handleCuisinesChange}/>
-                            <label htmlFor="cajun">Cajun</label><br/>
-                            
-                            <input type="checkbox" name="cuisine" value="american" onChange={handleCuisinesChange}/>
-                            <label htmlFor="american">American</label><br/>
+                            {generateCuisineFilters}
                         </div>
                         <div className="filter-select">
                             <h3>Meal type:</h3>
-                            <input type="checkbox" name="type" value="main%20course" onChange={handleTypesChange}/>
-                            <label htmlFor="main%20course">Main Course</label><br/>
-                            
-                            <input type="checkbox" name="type" value="appetizer" onChange={handleTypesChange}/>
-                            <label htmlFor="appetizer">Appetiser</label><br/>
-                            
-                            <input type="checkbox" name="type" value="dessert" onChange={handleTypesChange}/>
-                            <label htmlFor="dessert">Dessert</label><br/>
-                            
-                            <input type="checkbox" name="type" value="side%20dish" onChange={handleTypesChange}/>
-                            <label htmlFor="side%20dish">Side Dish</label><br/>
-                            
-                            <input type="checkbox" name="type" value="breakfast" onChange={handleTypesChange}/>
-                            <label htmlFor="breakfast">Breakfast</label><br/>
+                            {generateTypeFilters}
                         </div>
                         <div className="filter-select">
                             <h3>Key Ingredients:</h3>
-                            <input type="checkbox" name="type" value="chicken" onChange={handleKeyIngredientsChange}/>
-                            <label htmlFor="chicken">Chicken</label><br/>
-                            
-                            <input type="checkbox" name="type" value="beef" onChange={handleKeyIngredientsChange}/>
-                            <label htmlFor="beef">Beef</label><br/>
-                            
-                            <input type="checkbox" name="type" value="pork" onChange={handleKeyIngredientsChange}/>
-                            <label htmlFor="pork">Pork</label><br/>
-                            
-                            <input type="checkbox" name="type" value="chicken" onChange={handleKeyIngredientsChange}/>
-                            <label htmlFor="lamb">Lamb</label><br/>
-                            
-                            <input type="checkbox" name="type" value="tofu" onChange={handleKeyIngredientsChange}/>
-                            <label htmlFor="tofu">Tofu</label><br/>
-                            
-                            <input type="checkbox" name="type" value="aubergine,eggplant" onChange={handleKeyIngredientsChange}/>
-                            <label htmlFor="aubergine,eggplant">Aubergine</label><br/>
-
-                            <input type="checkbox" name="type" value="halloumi" onChange={handleKeyIngredientsChange}/> 
-                            <label htmlFor="halloumi">Halloumi</label>
-                            
+                            {generateIngredientFilters}                            
                         </div>
                     </div>
                     <input className="filter-submit-button" type="submit" value="Set Filters"/>

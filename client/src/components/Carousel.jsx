@@ -60,7 +60,6 @@ const Carousel = ({ recipes, title }) => {
         </div>
       </Link>
     </SplideSlide>
-
   ));
 
   return (

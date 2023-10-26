@@ -5,27 +5,27 @@ import CustomerPrefererencesForm from './components/CustomerPreferencesForm'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import SearchResults from './components/SearchResults'
-import { getUser, saveFavourite, deleteFavourite } from './services/UserServices'
+import { getUser, saveFavourite, deleteFavourite, addDiet, addIntolerance, removeDiet, removeIntolerance } from './services/UserServices'
 import './style/App.css'
 import './style/RecipeLists.css'
 import './style/Search.css'
 
 function App() {
-  
-  const loggedInUserId = '6538f63a7dec7c6a518882b9'
+    
+  const loggedInUserId = '653a10f134363c78a8a351f5'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
-  const [user, setUser] = useState({favourites:''})
+  const [user, setUser] = useState({favourites:'',dietary_preference:[], intolerances:[]})
 
-    
   useEffect(() => {
     getUser(loggedInUserId)
     .then((user) => setUser(user))
   }, [])
 
   useEffect(() => {
+    console.log(user.intolerances)
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {
@@ -41,7 +41,7 @@ function App() {
         }
         setCarouselRecipes(carouselRecipesObject)
       })
-  }, [])
+  }, [user])
 
   const getFilters = (newFilters) => {
     getFilteredRecipes(newFilters, user.dietary_preference, user.intolerances)
@@ -62,19 +62,31 @@ function App() {
     .then((user) => setUser(user))  
   }
 
-  const setCustomerPreferences = (userId, newPreferences) => {
-    // updateCustomerPreferences(userId, newPreferences)
-    // .then(getUser(userId))
-    // .then((user) => setUser(user))
+  const setCustomerPreferences = (userId, newDietaryPreferences, newIntolerances) => {
+    for (let diet of newDietaryPreferences) {
+      if (user.dietary_preference.includes(diet)) {
+        removeDiet(userId, diet)
+      } else {
+        addDiet(userId, diet)
+      }
+    }
+    for (let intolerance of newIntolerances) {
+      if (user.intolerances.includes(intolerance)) {
+        removeIntolerance(userId, intolerance)
+      } else {
+        addIntolerance(userId, intolerance)
+      }
+    }
+    getUser(userId)
+    .then((user) => setUser(user))
   }
   
   return (  
     <>
       <div className="container">
         <Header setSearchResults={setSearchResults} />
-        <CustomerPrefererencesForm user={user} setCustomerPreference={setCustomerPreferences}/>        
+        <CustomerPrefererencesForm user={user} setCustomerPreferences={setCustomerPreferences}/>        
         <FilterForm getFilters={getFilters}/>
-        <br/>
       </div>
 
       { searchResults.length === 0 
