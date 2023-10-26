@@ -42,7 +42,7 @@ const Carousel = ({ recipes, title }) => {
 
     <SplideSlide key={recipe.id}>
       <Link onMouseEnter={() => handleHover(recipe.id)} to={"/recipe/" + recipe.id}>
-        <h3>{recipe.title}</h3>
+        <h3 className="recipe-card-recipe-name"> {recipe.title}</h3>
         <div className="recipe-card">
           <img className='card-img' src={recipe.image} alt={`Picture for ${recipe.title}`} />
           <div className='card-body'>

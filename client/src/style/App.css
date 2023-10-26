@@ -37,56 +37,17 @@ header a {
   color: white;
 }
 
-a:hover {
+header a:hover {
   color: #EBF8DF;
 }
 
-a:link{
+header a:link{
   text-decoration: none;
   font-size: 25px;
 }
 
 
-/* filter form */
-
-
-
-/* recipe container  */
-
-/* .carousel-title {
-  margin: 0px;
-  padding: 20px;
-  background-color: rgb(7, 67, 35);
-  color: white
-}
-
-.carousel {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-img {
-
-  
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-.recipe-card {
-
-  width: 300;
-  height: 300;
-  overflow: hidden;
-}
+/* recipe card stuff */
 
 .recipe-card:hover .card-body {
   right: 0;
@@ -95,7 +56,6 @@ img {
 .card-img {
   border-radius: 2rem;
   width: 300px;
-
 }
 
 .card-body{
@@ -110,10 +70,11 @@ img {
   color: #EBF8DF;
   border-radius: 2rem;
   font-size: 1rem;
-  line-height: normal;
 }
 
 .deet-text {
   padding: 40px;
+  padding-top: 60px;
   line-height: 0.5rem;
+  font-size: larger;
 }
