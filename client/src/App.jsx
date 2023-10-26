@@ -5,19 +5,19 @@ import CustomerPrefererencesForm from './components/CustomerPreferencesForm'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import SearchResults from './components/SearchResults'
-import { getUser, saveFavourite, deleteFavourite, addDiet, addIntolerance } from './services/UserServices'
+import { getUser, saveFavourite, deleteFavourite, addDiet, addIntolerance, removeDiet, removeIntolerance } from './services/UserServices'
 import './style/App.css'
 import './style/RecipeLists.css'
 import './style/Search.css'
 
 function App() {
     
-  const loggedInUserId = '6539779dadb03d588567168b'
+  const loggedInUserId = '653a10f134363c78a8a351f5'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
   const [searchResults, setSearchResults] = useState([])
-  const [user, setUser] = useState({favourites:''})
+  const [user, setUser] = useState({favourites:'',dietary_preference:[], intolerances:[]})
 
   useEffect(() => {
     getUser(loggedInUserId)
@@ -64,10 +64,18 @@ function App() {
 
   const setCustomerPreferences = (userId, newDietaryPreferences, newIntolerances) => {
     for (let diet of newDietaryPreferences) {
-      addDiet(userId, diet)
+      if (user.dietary_preference.includes(diet)) {
+        removeDiet(userId, diet)
+      } else {
+        addDiet(userId, diet)
+      }
     }
     for (let intolerance of newIntolerances) {
-      addIntolerance(userId, intolerance)
+      if (user.intolerances.includes(intolerance)) {
+        removeIntolerance(userId, intolerance)
+      } else {
+        addIntolerance(userId, intolerance)
+      }
     }
     getUser(userId)
     .then((user) => setUser(user))

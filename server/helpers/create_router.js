@@ -80,21 +80,31 @@ const createRouter = function (collection) {
       })
     })
 
-    // router.put('/:userId/:diet', (req, res) => {
-    //   const userToUpdate = { _id: new ObjectID(req.params.userId) }
-    //   const newPreferences = { $set: 
-    //     {dietary_preferences:req.params.diet, 
-    //     intolerances:req.params.intolerances}
-    //   }
-    //   collection
-    //   .updateOne(userToUpdate, newPreferences)
-    //   .then(res.json({status:200}))
-    //   .catch((err) => {
-    //     console.error(err)
-    //     res.status(500)
-    //     res.json({ status: 500, error: err })
-    //   })
-    // })
+    router.delete('/intolerance/:userId/:diet', (req, res) => {
+      const userToUpdate = { _id: new ObjectID(req.params.userId) }
+      const dietToDelete = { $pull: {dietary_preference:req.params.diet} }
+      collection
+      .updateOne(userToUpdate, dietToDelete)
+      .then(res.json({status:200}))
+      .catch((err) => {
+        console.error(err)
+        res.status(500)
+        res.json({ status: 500, error: err })
+      })
+    })
+
+    router.delete('/intolerance/:userId/:intolerance', (req, res) => {
+      const userToUpdate = { _id: new ObjectID(req.params.userId) }
+      const intoleranceToDelete = { $pull: {intolerances:req.params.intolerance} }
+      collection
+      .updateOne(userToUpdate, intoleranceToDelete)
+      .then(res.json({status:200}))
+      .catch((err) => {
+        console.error(err)
+        res.status(500)
+        res.json({ status: 500, error: err })
+      })
+    })
 
     return router
 }

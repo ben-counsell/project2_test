@@ -37,6 +37,22 @@ export const addIntolerance = (userId, intolerance) => {
 .then(res => res.json())
 }
 
+export const removeDiet = (userId, diet) => {
+    return fetch(`${baseUrl}/diet/${userId}/${diet}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+})
+.then(res => res.json())
+}
+
+export const removeIntolerance = (userId, intolerance) => {
+    return fetch(`${baseUrl}/intolerance/${userId}/${intolerance}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+})
+.then(res => res.json())
+}
+
 // export const updateCustomerPreferences = (userId, diet, intolerances) => {
 //     return fetch(`${baseUrl}/${userId}/${diet}/${intolerances}`, {
 //     method: 'PUT',

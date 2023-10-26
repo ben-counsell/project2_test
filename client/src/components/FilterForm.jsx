@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, createElement } from "react"
 import '../style/Accordion.css'
 
 const FilterForm = ({getFilters}) => {
@@ -78,21 +78,21 @@ const FilterForm = ({getFilters}) => {
 
     const generateCuisineFilters = cuisineFilters.map((cuisine) => {
         return  <>
-                    <input type="checkbox" name="cuisine" value={cuisine} onChange={handleCuisinesChange}/>
+                    <input type="checkbox" name="cuisine" id={cuisine} value={cuisine} onChange={handleCuisinesChange}/>
                     <label htmlFor={cuisine}>{cuisine[0].toUpperCase()+cuisine.slice(1)}</label><br/>
                 </>
     })
 
     const generateTypeFilters = typeFilters.map((type) => {
         return  <>
-                    <input type="checkbox" name="type" value={type} onChange={handleTypesChange}/>
+                    <input type="checkbox" name="type" id={type} value={type} onChange={handleTypesChange}/>
                     <label htmlFor={type}>{type[0].toUpperCase()+type.slice(1)}</label><br/>
                 </>
     })
 
     const generateIngredientFilters = ingredientFilters.map((ingredient) => {
         return  <>
-                    <input type="checkbox" name="ingredient" value={ingredient} onChange={handleKeyIngredientsChange}/>
+                    <input type="checkbox" name="ingredient" id={ingredient} value={ingredient} onChange={handleKeyIngredientsChange}/>
                     <label htmlFor={ingredient}>{ingredient[0].toUpperCase()+ingredient.slice(1)}</label><br/>
                 </>
     })
