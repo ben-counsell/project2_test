@@ -52,11 +52,3 @@ export const removeIntolerance = (userId, intolerance) => {
 })
 .then(res => res.json())
 }
-
-// export const updateCustomerPreferences = (userId, diet, intolerances) => {
-//     return fetch(`${baseUrl}/${userId}/${diet}/${intolerances}`, {
-//     method: 'PUT',
-//     headers: { 'Content-Type': 'application/json' }
-// })
-// .then(res => res.json())
-// }

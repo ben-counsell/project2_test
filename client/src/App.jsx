@@ -25,7 +25,6 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log(user.intolerances)
     let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {

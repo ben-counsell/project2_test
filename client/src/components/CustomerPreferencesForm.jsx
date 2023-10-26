@@ -8,7 +8,7 @@ const CustomerPrefererencesForm = ({ user, setCustomerPreferences }) => {
     const [intolerances, setIntolerances] = useState([])
 
     useEffect(() => {
-        if (user.dietary_preferences) {
+        if (user.dietary_preference) {
         setDietaryPreferences(user.dietary_preference)
         setIntolerances(user.intolerances)
         }

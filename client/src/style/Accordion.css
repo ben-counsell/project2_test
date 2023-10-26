@@ -16,6 +16,7 @@
     padding-left: 20px;
     cursor: pointer; 
     border: none;
+    transition: .2s;
 }
 
 /* .accordion .button {
@@ -34,7 +35,7 @@
 } 
 
 .accordion-open .button {
-    color: #074323;
+    color: white;
     background-color: #03917C;
     font-size: 20px;
     text-align: center;
@@ -46,6 +47,7 @@
     padding-left: 20px;
     cursor: pointer;
     border: none;
+    transition: .2s;
 }
 
 .accordion-wrapper {
