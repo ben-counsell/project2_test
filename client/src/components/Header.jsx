@@ -6,14 +6,14 @@ const Header = ({ setSearchResults }) => {
     return (
         <>
         <header>
-            <h1> RecipeFlix </h1>
+            <a href="/"><h1> RecipeFlix </h1></a>
             <nav>
                 <ul>
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/"></a>
                     </li>
                     <li>
-                        <a href="/favourites">Favourites</a>
+                        <a href="/favourites"></a>
                     </li>
                 </ul>
             </nav>
