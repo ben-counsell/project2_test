@@ -46,15 +46,15 @@ const Recipe = ({ user, newFavourite, removeFavourite }) => {
     }
 
 
-    const favouriteIcon = isFavourite ? <BsHeartFill onClick={handleClick} size="70" className="heart-full" />
-        : <BsHeart onClick={handleClick} size="50" className="heart-empty" />
+    const favouriteIcon = isFavourite ? <><BsHeartFill onClick={handleClick} size="50" className="heart-full" /> Favourited! </>
+        : <><BsHeart onClick={handleClick} size="50" className="heart-empty" /> Add to Your Favourites </>
 
     return (
         <>
-            <div className="detail"> 
+            <div className="recipe-detail"> 
                 <div className="left-column"><h2>{recipeDetails.title}</h2>
                     <p>Cooking Time: {recipeDetails.readyInMinutes} minutes</p>
-                    {favouriteIcon}
+                    {favouriteIcon} <br />
                     <img className="recipe-image" src={recipeDetails.image} alt={`Picture for ${recipeDetails.title}`}/>
                     <p>Dairy Free {recipeDetails.dairyFree ? <TiTick/> : <RxCross2/>}</p>
                     <p>Gluten Free {recipeDetails.glutenFree ? <TiTick/> : <RxCross2/>}</p>
@@ -65,18 +65,20 @@ const Recipe = ({ user, newFavourite, removeFavourite }) => {
                     <button onClick={() => setActiveButton('Summary')} className={activeButton === 'Summary' ? 'recipe-button' : 'active'}>Summary</button>
                     <button onClick={() => setActiveButton('Ingredients/Method')} className={activeButton === 'Ingredients/Method' ? 'recipe-button' : 'active'}>Ingredients/Method</button>
                     {activeButton === 'Summary' && (
-                    <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></h3>
+                    <div className="recipe-summary"> <p dangerouslySetInnerHTML={{ __html: recipeDetails.summary }}></p></div>
                     )}
                     {activeButton === 'Ingredients/Method' && (
                         <>
-                            <h3 dangerouslySetInnerHTML={{ __html: recipeDetails.instructions }}></h3>
-                            <ul>{recipeDetails.extendedIngredients.map((ingredient) => {
-                                return <li key={ingredient.id}>{ingredient.original}</li>
-                            })}</ul>
+                            <div className="recipe-instructions">
+                                <ul>{recipeDetails.extendedIngredients.map((ingredient) => {
+                                    return <li key={ingredient.id}>{ingredient.original}</li>
+                                })}</ul><br />
+                                <p dangerouslySetInnerHTML={{ __html: recipeDetails.instructions }}></p>
+                                
+                            </div>
                         </>
                     )}
                 </div>
-
             </div>
 
 
