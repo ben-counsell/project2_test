@@ -13,8 +13,6 @@ import apiKey from '../services/apiKey';
 
 const Carousel = ({ recipes, title }) => {
 
-
-
   const [recipeId, setRecipeId] = useState(null)
   const [recipeDeets, setRecipeDeets] = useState(null)
 

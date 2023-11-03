@@ -1,22 +1,29 @@
 .search-bar {
-  display: flex;
-  justify-content: center;
   height: 50px;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  width: 50%;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+
+.search-bar form {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 .search-bar input {
   height: 100%;
   font-size: 28px; 
-  border: 1px solid grey;
-  float: left;
-  border-radius: 1rem;
+  width: 97%;
+  padding-left: 10px;
+  border: 1px transparent;
+  border-radius: 10px;
   color: rgb(7, 67, 35);
 }
 
 .search-bar button {
   height: 100%;
+  width: 20%;
   font-size: 25px;
   margin-left: 10px;
   background-color: rgb(7, 67, 35);

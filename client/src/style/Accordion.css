@@ -1,11 +1,16 @@
+.accordion-container {
+    display: flex;
+}
+
 .accordion {
-    list-style: none;
-    margin: 0px;
+    margin: auto;
+    flex-grow: 1;
+
 }
 
 .accordion .button {
     color: #074323;
-    background-color: #EBF8DF;
+    background-color: #EEEEEE;
     font-size: 20px;
     text-align: center;
     display: flex;
@@ -34,9 +39,13 @@
     font-size: 30px;
 } 
 
+.accordion .button {
+    box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.625) inset;
+}
+
 .accordion-open .button {
     color: white;
-    background-color: #03917C;
+    background-color: rgb(43, 136, 88);
     font-size: 20px;
     text-align: center;
     display: flex;
@@ -48,18 +57,23 @@
     cursor: pointer;
     border: none;
     transition: .2s;
+    flex-grow: 1;
 }
 
 .accordion-wrapper {
     height: 0;
     overflow: hidden;
     transition: ease .8s;
-    padding-bottom: 30px;
+    
+}
+.accordion-wrapper-open {
+    padding-bottom: 20px;
 }
 
 .accordion-form {
-    background-color: #EBF8DF;
-    padding: 20px;
+    width: 100%;
+    background-color: #EEEEEE;
+    padding: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -69,6 +83,8 @@
     flex-flow: row wrap;
     gap: 100px;
     font-size: 20px;
+    flex-grow: 1;
+
 }
 
 .filter-select {

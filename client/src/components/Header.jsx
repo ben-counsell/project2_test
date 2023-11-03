@@ -7,18 +7,8 @@ const Header = ({ setSearchResults }) => {
         <>
         <header>
             <a href="/"><h1> RecipeFlix </h1></a>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/"></a>
-                    </li>
-                    <li>
-                        <a href="/favourites"></a>
-                    </li>
-                </ul>
-            </nav>
+            < SearchBar setSearchResults={setSearchResults} />
         </header>
-        < SearchBar setSearchResults={setSearchResults} />
         </>
     )
 }

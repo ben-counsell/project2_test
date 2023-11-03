@@ -17,14 +17,13 @@ const Home = ({carouselRecipes, filteredResults}) => {
 
     return ( 
         <>
-        <div className="recipe-container">
+            <div className="recipe-container">
                 {filterResults}
-                {carouselRecipes.random ? <Carousel recipes={carouselRecipes.random} title='Random recipes'/> : null}
+                {carouselRecipes.main ? <Carousel recipes={carouselRecipes.main} title='Main courses'/> : null}
                 {carouselRecipes.vegan ? <Carousel recipes={carouselRecipes.vegan} title='Vegan options'/> : null}
-                {carouselRecipes.vegetarian ? <Carousel recipes={carouselRecipes.vegetarian} title='Veggie choices'/> : null}
+                {carouselRecipes.vegetarian ? <Carousel recipes={carouselRecipes.vegetarian} title='Vegetarian choices'/> : null}
                 {carouselRecipes.thai ? <Carousel recipes={carouselRecipes.thai} title='Thai options'/> : null}
-        </div>
-        {/* <FavouriteRecipes recipes={recipes} OnRecipeSelected={handleRecipeSelected} /> */}
+            </div>
         </>
      );
 }
