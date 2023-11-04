@@ -12,7 +12,7 @@ import './style/Search.css'
 
 function App() {
     
-  const loggedInUserId = '653a30ec0904a06a5fc71e68'
+  const loggedInUserId = '6546636d9fdcec4aa6fc7f45'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
@@ -82,17 +82,15 @@ function App() {
   
   return (  
     <>
-      <div className="container">
-        <Header setSearchResults={setSearchResults} />
-        <div className='accordion-container'>
-          <CustomerPrefererencesForm user={user} setCustomerPreferences={setCustomerPreferences}/>        
-          <FilterForm getFilters={getFilters}/>
-        </div>
+      <Header setSearchResults={setSearchResults}/>
+      <div className='accordion-container'>
+        <CustomerPrefererencesForm user={user} setCustomerPreferences={setCustomerPreferences}/>        
+        <FilterForm getFilters={getFilters}/>
       </div>
 
       { searchResults.length === 0 
       ?<RecipeContainer carouselRecipes={carouselRecipes} filteredResults={filteredResults} user={user} newFavourite={newFavourite} removeFavourite={removeFavourite}/>
-      :<SearchResults recipes={searchResults} />
+      :<SearchResults recipes={searchResults}/>
       }
     </>
   )

@@ -17,7 +17,6 @@
     cursor: pointer; 
     border: none;
     transition: .2s;
-    /* box-shadow: 0px -.5px 1px rgba(0, 0, 0, 0.262); */
 }
 
 .control {
@@ -42,7 +41,7 @@
 }
 
 .accordion-wrapper {
-    transition: ease .8s;
+    transition: ease .6s;
     overflow: hidden;
 }
 
@@ -99,6 +98,3 @@
     border-width: 2px;
     border-color: black;
 }
-
-
-
