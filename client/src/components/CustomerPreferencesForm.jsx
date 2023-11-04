@@ -75,7 +75,7 @@ const CustomerPrefererencesForm = ({ user, setCustomerPreferences }) => {
                 <span className="control">{accordionExpanded ? '—' : '+'}</span>
             </button>
 
-            <div ref={contentElement} className={`accordion-wrapper${accordionExpanded ? '-open' : ''}`} style={
+            <div ref={contentElement} className='accordion-wrapper' style={
                 accordionExpanded
                     ? {height:contentElement.current.scrollHeight}
                     : {height:'0px'}   
