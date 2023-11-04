@@ -5,6 +5,7 @@
 
 .accordion .button {
     color: #074323;
+    height: 67px;
     background-color: #EEEEEE;
     font-size: 20px;
     text-align: center;
@@ -16,19 +17,8 @@
     cursor: pointer; 
     border: none;
     transition: .2s;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.625);
+    /* box-shadow: 0px -.5px 1px rgba(0, 0, 0, 0.262); */
 }
-
-/* .accordion .button {
-    margin-left: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 100px;
-    width: 30%;
-    align-items: center;
-    cursor: pointer;
-    border: none;
-} */
 
 .control {
     font-size: 30px;
@@ -36,11 +26,11 @@
 
 .accordion-open .button {
     color: white;
+    height: 67px;
     background-color: rgb(7, 67, 35);
     font-size: 20px;
     text-align: center;
     display: flex;
-    flex-wrap: wrap;
     width: 100%;
     justify-content: space-around;
     align-items: center;
@@ -65,13 +55,11 @@
 
 .filter-option-form {
     display: flex;
-
     justify-content: center;
     flex-flow: row wrap;
     gap: 100px;
     font-size: 20px;
     flex-grow: 1;
-
 }
 
 .filter-select {
@@ -81,7 +69,6 @@
 .filter-select input {
     height: 18px;
     width: 18px;
-    
     background-color: #eee;
     margin-right: 15px;
 }
