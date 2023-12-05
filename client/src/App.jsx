@@ -12,7 +12,7 @@ import './style/Search.css'
 
 function App() {
     
-  const loggedInUserId = '6546636d9fdcec4aa6fc7f45'
+  const loggedInUserId = '654e0df4568ad7eca78342f9'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
