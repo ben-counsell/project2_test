@@ -54,7 +54,7 @@ const Carousel = ({ recipes, title }) => {
     <div>
       <h3 className='carousel-title'>{title}</h3>
       <div className='carousel'>
-        <Splide options={{ type: 'loop', perPage: 5, pagination: false, drag: false }}>
+        <Splide options={{ type: 'loop', perPage: 6, pagination: true, drag: false }}>
           {Carousel}
         </Splide>
       </div>
