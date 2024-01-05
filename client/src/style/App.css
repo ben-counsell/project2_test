@@ -12,7 +12,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-
 }
 
 header h1 {
@@ -35,17 +34,14 @@ header ul {
   margin: auto;
   padding-top: 125px;
   padding-bottom: 40px;
-  
 }
 
 header a {
   color: white;
-  transition: 0.2s;
 }
 
 header a:hover {
   color: #EBF8DF;
-  transition: 0.2s;
 }
 
 header a:link{

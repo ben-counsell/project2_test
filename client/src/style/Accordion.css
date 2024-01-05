@@ -1,6 +1,11 @@
 .accordion-container {
     display: flex;
-    flex-direction: column;
+}
+
+.accordion {
+    margin: auto;
+    flex-grow: 1;
+
 }
 
 .accordion .button {
@@ -9,14 +14,14 @@
     font-size: 20px;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
     padding-left: 20px;
-    width: 100%;
     cursor: pointer; 
     border: none;
     transition: .2s;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.625);
 }
 
 /* .accordion .button {
@@ -34,9 +39,13 @@
     font-size: 30px;
 } 
 
+.accordion .button {
+    box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.625) inset;
+}
+
 .accordion-open .button {
     color: white;
-    background-color: rgb(7, 67, 35);
+    background-color: rgb(43, 136, 88);
     font-size: 20px;
     text-align: center;
     display: flex;
@@ -48,12 +57,17 @@
     cursor: pointer;
     border: none;
     transition: .2s;
-    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.262);
+    flex-grow: 1;
 }
 
 .accordion-wrapper {
-    transition: ease .8s;
+    height: 0;
     overflow: hidden;
+    transition: ease .8s;
+    
+}
+.accordion-wrapper-open {
+    padding-bottom: 20px;
 }
 
 .accordion-form {
@@ -65,7 +79,6 @@
 
 .filter-option-form {
     display: flex;
-
     justify-content: center;
     flex-flow: row wrap;
     gap: 100px;
@@ -81,7 +94,6 @@
 .filter-select input {
     height: 18px;
     width: 18px;
-    
     background-color: #eee;
     margin-right: 15px;
 }
@@ -94,13 +106,13 @@
     height: fit-content;
     font-size: 20px;
     border-radius: 2rem;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     cursor: pointer;
     border: 1px solid grey;
-    width: 200px;
+    width: 150px;
+    margin-right: 500px;
     float: right;
-    margin-right: 50%;
-    margin: 30px 48% 20px;
 }
 
 .filter-submit-button:hover {
