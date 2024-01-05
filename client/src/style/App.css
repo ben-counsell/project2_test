@@ -1,5 +1,5 @@
 body {
-  background-color: #EEEEEE;
+  background-color: #EBF8DF;
   color: rgb(7, 67, 35);
   margin: auto;
 }
@@ -7,19 +7,17 @@ body {
 header {
   color: white;
   padding-left: 100px;
-  height: 170px;
   background-color: rgb(7, 67, 35);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  margin: auto;
+  padding-bottom: 10px;
 }
 
 header h1 {
   font-family: 'Cedarville Cursive', cursive;
   font-size: 95px;
-  margin: -30px;
-  margin-top: 10px;
-  padding-left: 15%;
+  margin: auto;
+  padding-top: 13px;
+  position: absolute;
 } 
 
 header ul {

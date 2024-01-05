@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 import { getFilteredRecipes, getRecipesForCarousel } from './services/RecipeServices'
-import { getUser, saveFavourite, deleteFavourite, addDiet, addIntolerance, removeDiet, removeIntolerance } from './services/UserServices'
 import RecipeContainer from './containers/RecipeContainer'
 import CustomerPrefererencesForm from './components/CustomerPreferencesForm'
 import FilterForm from './components/FilterForm'
 import Header from './components/Header'
 import SearchResults from './components/SearchResults'
+import { getUser, saveFavourite, deleteFavourite, addDiet, addIntolerance, removeDiet, removeIntolerance } from './services/UserServices'
 import './style/App.css'
 import './style/RecipeLists.css'
 import './style/Search.css'
 
 function App() {
     
-  const loggedInUserId = '653a30ec0904a06a5fc71e68'
+  const loggedInUserId = '653a10f134363c78a8a351f5'
 
   const [carouselRecipes, setCarouselRecipes] = useState({})
   const [filteredResults, setFilteredResults] = useState({noFilters:'have yet been set'})
@@ -25,7 +25,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    let carouselRequests = ['Main Course', 'Vegetarian', 'Vegan', 'Thai']
+    let carouselRequests = ['', 'Vegetarian', 'Vegan', 'Thai']
 
     const newCarouselRecipes = carouselRequests.map((request) => {
       return getRecipesForCarousel(request, user.dietary_preference, user.intolerances)
@@ -33,7 +33,7 @@ function App() {
     Promise.all(newCarouselRecipes)
       .then(recipeArray => {
         const carouselRecipesObject = {
-          main : recipeArray[0].results,
+          random : recipeArray[0].results,
           vegetarian : recipeArray[1].results,
           vegan : recipeArray[2].results,
           thai : recipeArray[3].results
@@ -84,10 +84,8 @@ function App() {
     <>
       <div className="container">
         <Header setSearchResults={setSearchResults} />
-        <div className='accordion-container'>
-          <CustomerPrefererencesForm user={user} setCustomerPreferences={setCustomerPreferences}/>        
-          <FilterForm getFilters={getFilters}/>
-        </div>
+        <CustomerPrefererencesForm user={user} setCustomerPreferences={setCustomerPreferences}/>        
+        <FilterForm getFilters={getFilters}/>
       </div>
 
       { searchResults.length === 0 
