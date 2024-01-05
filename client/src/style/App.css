@@ -1,6 +1,6 @@
 body {
-  background-color: #eeeeee;
-  color: rgb(7, 67, 35);  
+  background-color: #EEEEEE;
+  color: rgb(7, 67, 35);
   margin: auto;
 }
 
@@ -52,6 +52,7 @@ header a:link{
   text-decoration: none;
   font-size: 25px;
 }
+
 
 /* recipe card stuff */
 

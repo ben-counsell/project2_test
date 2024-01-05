@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import apiKey from '../services/apiKey';
 
+
+
+
+
+
+
+
 const Carousel = ({ recipes, title }) => {
 
   const [recipeId, setRecipeId] = useState(null)
@@ -24,6 +31,9 @@ const Carousel = ({ recipes, title }) => {
   const handleHover = (id) => {
     setRecipeId(id);
   };
+
+
+
 
   const Carousel = recipes.map((recipe) => (
 
@@ -54,7 +64,7 @@ const Carousel = ({ recipes, title }) => {
     <div>
       <h3 className='carousel-title'>{title}</h3>
       <div className='carousel'>
-        <Splide options={{ type: 'loop', perPage: 6, pagination: true, drag: false }}>
+        <Splide options={{ type: 'loop', perPage: 4, pagination: false, drag: 'free', gap: '5rem' }}>
           {Carousel}
         </Splide>
       </div>

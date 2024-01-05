@@ -45,6 +45,7 @@ const Recipe = ({ user, newFavourite, removeFavourite }) => {
         );
     }
 
+
     const favouriteIcon = isFavourite ? <><BsHeartFill onClick={handleClick} size="50" className="heart-full" /> Favourited! </>
         : <><BsHeart onClick={handleClick} size="50" className="heart-empty" /> Add to Your Favourites </>
 
@@ -79,6 +80,8 @@ const Recipe = ({ user, newFavourite, removeFavourite }) => {
                     )}
                 </div>
             </div>
+
+
         </>
     );
 }

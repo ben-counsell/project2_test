@@ -1,3 +1,4 @@
+
 const SearchResults = ({recipes}) => {
 
     const recipeDisplay = recipes.filter((recipe => recipe.title)
@@ -18,5 +19,6 @@ const SearchResults = ({recipes}) => {
     )
  
 }
+
 
 export default SearchResults
